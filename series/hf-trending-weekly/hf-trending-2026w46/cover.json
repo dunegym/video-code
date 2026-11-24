@@ -1,0 +1,25 @@
+{
+  "brand": "Hugging Face",
+  "title_suffix": "本周热榜",
+  "top": "Top 5",
+  "date": "2026 · 第 46 周 · 11月14日",
+  "sub1": "社区蒸馏 · 16MP 生图 · 音视频生成 · 27B 稠密 · 价值对齐",
+  "sub2": "官方模型回到前排，但榜首的点赞要打折扣",
+  "metric": "likes",
+  "metric_label": "点赞",
+  "metric_prefix": "",
+  "descs": {
+    "jackrong": "9B 蒸馏，点赞需打折扣",
+    "h3img": "16MP 文生图和改图",
+    "ltx": "音视频联合生成",
+    "qwen": "27B 稠密多模态",
+    "arete": "价值对齐微调"
+  },
+  "avatars": {
+    "jackrong": "assets/proc/av_jackrong.png",
+    "h3img": "assets/proc/av_h3img.png",
+    "ltx": "assets/proc/av_ltx.png",
+    "qwen": "assets/proc/av_qwen.png",
+    "arete": "assets/proc/av_arete.png"
+  }
+}

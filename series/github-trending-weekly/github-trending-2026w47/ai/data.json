@@ -1,0 +1,69 @@
+{
+ "_meta": {
+  "source": "https://github.com/trending?since=weekly",
+  "captured": "2026-11-20 17:58 (Asia/Shanghai)",
+  "order": "category page order",
+  "timezone": "Asia/Shanghai",
+  "week": 47
+ },
+ "pn": {
+  "rank": 1,
+  "owner": "backnotprop",
+  "repo": "plannotator",
+  "week": 3468,
+  "total": 13763,
+  "language": "TypeScript",
+  "license": "Apache-2.0",
+  "created": "2025-12-28",
+  "what": "给人盯智能体的本地评审工作台",
+  "short": "智能体评审工作台"
+ },
+ "st": {
+  "rank": 2,
+  "owner": "google-labs-code",
+  "repo": "stitch-skills",
+  "week": 1829,
+  "total": 10858,
+  "language": "TypeScript",
+  "license": "Apache-2.0",
+  "created": "2026-01-16",
+  "what": "对接 Google Stitch 的设计技能库",
+  "short": "Stitch 设计技能库"
+ },
+ "mw": {
+  "rank": 3,
+  "owner": "GoogleChrome",
+  "repo": "modern-web-guidance-src",
+  "week": 6858,
+  "total": 9338,
+  "language": "TypeScript",
+  "license": "Apache-2.0",
+  "created": "2026-01-27",
+  "what": "给编码智能体的现代网页指南",
+  "short": "现代网页指南技能"
+ },
+ "ocr": {
+  "rank": 4,
+  "owner": "alibaba",
+  "repo": "open-code-review",
+  "week": 4492,
+  "total": 54507,
+  "language": "Go",
+  "license": "Apache-2.0",
+  "created": "2026-05-18",
+  "what": "确定性流水线加代理的代码审查",
+  "short": "混合架构代码审查"
+ },
+ "l30": {
+  "rank": 5,
+  "owner": "mvanhorn",
+  "repo": "last30days-skill",
+  "week": 3179,
+  "total": 71103,
+  "language": "Python",
+  "license": "MIT",
+  "created": "2026-01-23",
+  "what": "按真实互动合成近三十天简报的调研技能",
+  "short": "近三十天舆情简报"
+ }
+}

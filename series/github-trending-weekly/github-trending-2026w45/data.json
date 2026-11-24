@@ -1,0 +1,13 @@
+{
+ "_meta": {"source": "https://github.com/trending?since=weekly", "captured": "2026-11-06", "order": "page order", "timezone": "Asia/Shanghai"},
+ "cm":  {"rank": 1, "owner": "thedotmack", "repo": "claude-mem", "week": 9318, "total": 113740, "language": "TypeScript", "license": "Apache-2.0", "created": "2025-08-31",
+         "what": "跨会话持久化记忆：捕获、压缩，再注入下次会话", "short": "跨会话的智能体记忆"},
+ "hm":  {"rank": 2, "owner": "Nutlope", "repo": "hallmark", "week": 6994, "total": 49137, "language": "CSS", "license": "MIT", "created": "2026-04-27",
+         "what": "反「AI 味」设计技能：五十主题 + 浏览器里 lint", "short": "反 AI 味的设计技能"},
+ "t3":  {"rank": 3, "owner": "pingdotgg", "repo": "t3code", "week": 16235, "total": 48851, "language": "TypeScript", "license": "MIT", "created": "2026-02-08",
+         "what": "开源的编码智能体控制面：自带订阅，手机也能遥控", "short": "编码智能体的控制面"},
+ "sk":  {"rank": 4, "owner": "anthropics", "repo": "skills", "week": 3072, "total": 187943, "language": "Python", "license": "未声明", "created": "2025-09-22",
+         "what": "Anthropic 公开的 Agent Skills 示例仓库", "short": "官方 Agent Skills 示例"},
+ "dt":  {"rank": 5, "owner": "HKUDS", "repo": "DeepTutor", "week": 6229, "total": 55684, "language": "Python", "license": "Apache-2.0", "created": "2025-12-28",
+         "what": "终身个性化辅导：一个学习工作区连起辅导与练习", "short": "终身个性化辅导"}
+}

@@ -1,0 +1,22 @@
+{
+ "space": "mrfakename/flint",
+ "message": "Write a Python function that merges overlapping intervals, with a short docstring and two asserts. Keep it under 20 lines.",
+ "response": [
+  {
+   "content": "We need to write a Python function that merges overlapping intervals. Requirements: short docstring, two asserts, under 20 lines. Probably the function takes a list of intervals and returns merged. Need to include asserts, maybe checking input type or sorted? Two asserts. Keep code concise.\n\nLet's design: function merge_intervals(intervals). Docstring: \"Merge overlapping intervals.\" Asserts: maybe assert intervals is a list, assert all intervals have start and end? Or assert len>0? Better: assert isinstance(intervals, list) and all(len(interval)==2 for interval in intervals). That's one assert. Second: maybe assert all(interval[0] <= interval[1] for interval in intervals) but that might be too strict? Could be that intervals are sorted? Not required.\n\nSimpler: assert intervals, \"List is empty\" - but two asserts? Maybe assert type and assert sorted? Actually merging typically assumes intervals are sorted or we sort them. We can sort inside.\n\nLet's keep it simple: def merge(intervals): doc. assert intervals, \"Empty list\" (assert 1). assert all(len(i)==2 for i in intervals), \"Invalid interval format\" (assert 2). Then sort, merge.\n\nCode lines: def merge(intervals):\n    \"\"\"Merge overlapping intervals.\"\"\"\n    assert intervals, \"Empty list\"\n    assert all(len(i) == 2 for i in intervals), \"Invalid interval format\"\n    intervals.sort(key=lambda x: x[0])\n    merged = [intervals[0]]\n    for start, end in intervals[1:]:\n        if start <= merged[-1][1]:\n            merged[-1][1] = max(merged[-1][1], end)\n        else:\n            merged.append([start, end])\n    return merged\n\nCount lines: def line, docstring, assert lines, sort, merged, for, if, else, return. That's about 10-12 lines. Under 20.\n\nCheck asserts: first asserts list not empty. Second asserts each interval length 2. Good.\n\nDocstring: short: \"Merge overlapping intervals.\"\n\nTwo asserts: yes.\n\nUnder 20 lines: yes.\n\nNow write answer.",
+   "role": "assistant",
+   "metadata": {
+    "title": "Thought for 4.0 s",
+    "status": "done"
+   },
+   "options": []
+  },
+  {
+   "content": "```python\ndef merge(intervals):\n    \"\"\"Merge overlapping intervals.\"\"\"\n    assert intervals, \"Empty list\"\n    assert all(len(i) == 2 for i in intervals), \"Invalid interval format\"\n    intervals.sort(key=lambda x: x[0])\n    merged = [intervals[0]]\n    for start, end in intervals[1:]:\n        if start <= merged[-1][1]:\n            merged[-1][1] = max(merged[-1][1], end)\n        else:\n            merged.append([start, end])\n    return merged\n```",
+   "role": "assistant",
+   "metadata": {},
+   "options": []
+  }
+ ],
+ "md": "Took 10.1 s · 549 tokens · 54.4 tok/s"
+}

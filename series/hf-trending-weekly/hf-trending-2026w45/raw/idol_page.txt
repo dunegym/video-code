@@ -1,0 +1,370 @@
+Idol · Speridlabs
+New model
+Idol · Image to 3D object
+See it
+speridlabs
+Platform
+Research
+Company
+Blog
+Join us
+Idol
+Single image to 3D object
+Idol turns one image into a 3D object made of Gaussians.
+A photograph, a render or an Iris-3B generation goes in; a splat you can turn around comes out, including the sides the image never showed. It can generate each object at several levels of detail, from 32,768 to 1,048,576 Gaussians.
+With 0.66B parameters, it runs in under 8 GB of GPU memory.
+Try the demo
+Code
+Weights
+Copy BibTeX
+Alejandro Cañada
+†
+Chema Garabito
+Speridlabs ·
+†
+project lead
+Gallery
+Every object below came from a single image.
+Gingerbread house
+Open 3D
+Marble
+Open 3D
+Stand mixer
+Open 3D
+Boombox
+Open 3D
+Macarons
+Open 3D
+Gold trophy
+Open 3D
+Roller skate
+Open 3D
+Train
+Open 3D
+Chesterfield
+Open 3D
+Polaroid stack
+Open 3D
+Dresser memphis
+Open 3D
+Strawberry
+Open 3D
+Ghost
+Open 3D
+Chair tulip red
+Open 3D
+Globe bar
+Open 3D
+Bean bag
+Open 3D
+Gingerbread house
+Open 3D
+Marble
+Open 3D
+Stand mixer
+Open 3D
+Boombox
+Open 3D
+Macarons
+Open 3D
+Gold trophy
+Open 3D
+Roller skate
+Open 3D
+Train
+Open 3D
+Chesterfield
+Open 3D
+Polaroid stack
+Open 3D
+Dresser memphis
+Open 3D
+Strawberry
+Open 3D
+Ghost
+Open 3D
+Chair tulip red
+Open 3D
+Globe bar
+Open 3D
+Bean bag
+Open 3D
+Wingback
+Open 3D
+Dog corgi
+Open 3D
+Minesweeper mine
+Open 3D
+Robot tin
+Open 3D
+Egg chair
+Open 3D
+Explorer
+Open 3D
+Dragon anime
+Open 3D
+Mushroom
+Open 3D
+Alien
+Open 3D
+Donut
+Open 3D
+Dj
+Open 3D
+Chair papasan
+Open 3D
+Bread loaf
+Open 3D
+Knight
+Open 3D
+Fox
+Open 3D
+Panda
+Open 3D
+Wingback
+Open 3D
+Dog corgi
+Open 3D
+Minesweeper mine
+Open 3D
+Robot tin
+Open 3D
+Egg chair
+Open 3D
+Explorer
+Open 3D
+Dragon anime
+Open 3D
+Mushroom
+Open 3D
+Alien
+Open 3D
+Donut
+Open 3D
+Dj
+Open 3D
+Chair papasan
+Open 3D
+Bread loaf
+Open 3D
+Knight
+Open 3D
+Fox
+Open 3D
+Panda
+Open 3D
+From a prompt
+Iris-3B draws the image from a prompt. Idol builds the object from the image.
+Prompt
+“
+a small robot duck in sunflower-yellow plastic, with orange feet
+”
+“
+a vintage mint green Italian motor scooter
+”
+Iris-3B · Image
+Idol · 3D object
+Robot duck
+Scooter
+Adjustable levels of quality
+From 32,768 to 1,048,576 Gaussians.
+32,768 · 0%
+1,048,576 · 0%
+‹›
+Object
+Lamp
+Samurai
+Treehouse
+Left
+32,768
+0.4
+MB
+262,144
+3.2
+MB
+Right
+1,048,576
+12.2
+MB
+Full object
+Benchmark
+Mean scores. Bold is the best in each column.
+1 × H100 per model
+Metric
+Idol
+TripoSplat
+TRELLIS
+LGM
+Input view
+PSNR ↑
+12.25
+11.76
+11.89
+12.46*
+SSIM ↑
+0.726
+0.712
+0.716
+0.722
+LPIPS ↓
+0.213
+0.225
+0.235
+0.237
+IoU ↑
+0.862
+0.860
+0.845
+0.834
+New views
+DINOv2 ↑
+0.781
+0.743
+0.754
+0.575
+CLIP ↑
+0.885
+0.868
+0.868
+0.784
+Sharpness distance ↓
+0.81
+1.03
+0.97
+1.22
+Request time ↓
+6.8 s
+9.9 s
+7.1 s
+1.1 s
+Model
+Input view
+New views
+Request time ↓
+PSNR ↑
+SSIM ↑
+LPIPS ↓
+IoU ↑
+DINOv2 ↑
+CLIP ↑
+Sharpness distance ↓
+Idol
+50 steps, 262,144 Gaussians
+12.25
+0.726
+0.213
+0.862
+0.781
+0.885
+0.81
+6.8 s
+TripoSplat
+50 steps, 262,144 Gaussians
+11.76
+0.712
+0.225
+0.860
+0.743
+0.868
+1.03
+9.9 s
+TRELLIS
+Paper setting, 50 + 50 steps
+11.89
+0.716
+0.235
+0.845
+0.754
+0.868
+0.97
+7.1 s
+LGM
+Default, 65,536 Gaussians
+12.46*
+0.722
+0.237
+0.834
+0.575
+0.784
+1.22
+1.1 s
+*
+LGM has the highest PSNR despite visibly blurry results, because PSNR averages squared pixel error.
+Across GPUs
+One image to 262,144 Gaussians in 3.4 s.
+Request time at 50 steps.
+GPU
+Request time
+B300
+269
+GB
+3.4
+s
+B200
+179
+GB
+3.6
+s
+H200
+140
+GB
+6.6
+s
+H100
+80
+GB
+6.7
+s
+RTX 5090
+32
+GB
+14.1
+s
+A100
+80
+GB
+16.3
+s
+L40S
+45
+GB
+16.6
+s
+RTX 4090
+24
+GB
+19.1
+s
+RTX 3080
+10
+GB
+46.2
+s
+L4
+22
+GB
+54.6
+s
+Median over 8 images, with the same code and settings on every GPU, one GPU per machine.
+Cite this work
+Copy
+@misc{canada2026idol,
+title  = {Idol: Single Image to 3D Gaussian Splats},
+author = {Ca{\~n}ada, Alejandro and Garabito, Chema},
+year   = {2026},
+url    = {https://speridlabs.com/research/idol}
+}
+The world is not flat.
+Product
+Platform
+Research
+Company
+About
+Blog
+Join us
+Connect
+contact@speridlabs.com
+GitHub
+X
+© 2026 Speridlabs
+v0.1 · 04.2026

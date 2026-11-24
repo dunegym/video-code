@@ -1,0 +1,33 @@
+build-system/agp/agp-9-upgrade/SKILL.md | Upgrades, or migrates, an Android project to use Android Gradle Plugin
+camera/camerax/SKILL.md | Provide technical guidance for Android camera development with CameraX.
+cars/android-for-cars-parked-apps/SKILL.md | Adapt existing Android video streaming apps, games, and web browsers
+device-ai/appfunctions/SKILL.md | Analyzes Android apps to identify key user workflows for AppFunctions
+device-ai/litert/litert-lm/SKILL.md | Builds an Android app that runs an open text LLM on the device, on the
+device-ai/litert/litert-runtime/SKILL.md | Configures and implements LiteRT (.tflite) on-device inference on Android
+device-ai/ml-kit-genai-prompt-api/SKILL.md | Analyzes Android codebases to implement ML Kit GenAI Prompt API. Use
+devtools/android-cli/SKILL.md | Provides instructions for installing and using the `android` CLI. The
+identity/restore-credentials/SKILL.md | Provides knowledge and workflows to implement Android's Restore Credentials
+identity/verified-email/SKILL.md | Provides a complete workflow for implementing verified email retrieval
+jetpack-compose/adaptive/SKILL.md | Instructions to make or update an app's UI so that it adapts to different
+jetpack-compose/jetpack-compose-performance/SKILL.md | Diagnose and optimize Android Jetpack Compose UI code. Use this skill
+jetpack-compose/migration/migrate-xml-views-to-jetpack-compose/SKILL.md | Provides a structured workflow for migrating an Android XML View to Jetpack
+jetpack-compose/theming/styles/SKILL.md | Use this skill to integrate the Jetpack Compose Styles API into an Android
+media/media3-cast-integration/SKILL.md | Implements Google Cast support in Android apps using Jetpack Media3.
+navigation/navigation-3/SKILL.md | Learn how to install and migrate to Jetpack Navigation 3, and how to
+navigation/navigation-event/SKILL.md | Intercept back gestures and run Predictive Back animations using the
+performance/anr-audit-and-fix/SKILL.md | Audits Android codebases for ANR risks and diagnoses ANR stack dumps.
+performance/r8-analyzer/SKILL.md | Analyzes Android build files and R8 keep rules to identify redundancies,
+play/engage-sdk-integration/SKILL.md | Helps developers integrate, debug, and resolve Play Engage SDK implementation
+play/play-billing-library-version-upgrade/SKILL.md | Use this skill when upgrading or migrating an Android project from any
+play/play-policy-insights/SKILL.md | Automated auditor designed to verify Android applications against Google Play Policy domains. It cross-references static code analysis with Play Store
+profilers/android-profiler/SKILL.md | 'Records and analyzes Android performance data and diagnoses performance
+security/android-intent-security/SKILL.md | Best practices for Android Intent security. Use this skill when auditing
+security/android-permissions-security/SKILL.md | Audits, detects gaps, and remediates Android permissions and IPC component
+system/edge-to-edge/SKILL.md | Use this skill to migrate your Jetpack Compose app to add adaptive edge-to-edge
+system/glance-canonical-layouts/SKILL.md | Use this skill to create home screen widgets using Jetpack Glance Canonical
+testing/testing-setup/SKILL.md | Analyze and create a testing strategy for Android apps - install testing
+tv/leanback-to-compose-tv-migration/SKILL.md | Provides instructions and architectural patterns for migrating Android
+wear/wear-compose-m3/SKILL.md | Guidance for Wear OS Compose Material3 (Wear Compose Material 3 / Wear
+wear/wear-widgets/SKILL.md | Create, migrate, update, and verify Wear OS widgets using Glance Wear
+xr/display-glasses-with-jetpack-compose-glimmer/SKILL.md | Provides guidelines for developing projected Android XR apps for display
+xr/projected-hardware/SKILL.md | Provides instructions and workflows for accessing and managing hardware

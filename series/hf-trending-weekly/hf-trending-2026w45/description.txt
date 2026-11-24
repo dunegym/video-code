@@ -1,0 +1,18 @@
+Hugging Face 本周热榜 Top 5（2026 年第 45 周 · 11 月 7 日）｜这周热榜的主角是三维：开源最强的智能体模型会做 CAD 建模，一张照片能生成可旋转的 3D 模型，4B 小模型也能写出完整的 Three.js 场景。
+
+#1 moonshotai/Kimi-K3.1-Pro：月之暗面 2.8T 总参数、104B 激活的多模态智能体模型，Artificial Analysis 智能指数在开源模型中排第一，但单任务成本和耗时都偏高。
+https://huggingface.co/moonshotai/Kimi-K3.1-Pro
+
+#2 speridlabs/idol：一张照片直接生成标准 3DGS 高斯模型，照片里看不到的背面也会补出来，自有参数仅 0.66B，但要先申请 DINOv3 和 FLUX.2 两个 gated 仓库。
+https://huggingface.co/speridlabs/idol
+
+#3 ccore/Qwen3.5-4B-3D-Coder：独立开发者用几千条合成数据、单卡约 60 小时微调的 4B 模型，专写可在浏览器打开的 Three.js 三维场景；姊妹模型 GLB-3D-Coder 还能导出游戏资产。
+https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder
+
+#4 Lightricks/LTX-2.5：音视频联合生成的 22B DiT，新增多镜头和扩散解码器；这周重回热榜，但超过一半的点赞来自 8 月之后注册的账号，排名参考价值要打折扣。
+https://huggingface.co/Lightricks/LTX-2.5
+
+#5 ricursiveAI/Ripple-65B-Preview：不用 MoE 的 65B 稠密模型，五人团队从零训练，终端编程测试的自报分数超过总参数大它好几倍的模型，知识和科学代码类偏弱。
+https://huggingface.co/ricursiveAI/Ripple-65B-Preview
+
+数据来源：Hugging Face Trending（2026-11-07 18:15 北京时间抓取），同一模型的 GGUF / 量化 / 去审查衍生仓库已合并计入原模型。

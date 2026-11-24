@@ -1,0 +1,18 @@
+Hugging Face 本周热榜 Top 5（2026 年第 44 周 · 10 月 31 日）｜从 1T 参数的 MoE 到 1GB 的手机模型，这周大家都在想办法把大模型塞进更小的设备。
+
+#1 Nanbeige/Nanbeige4.3-33B：BOSS直聘旗下南北阁团队的 33B 稠密“教师智能体”，在 JobBench 职业任务上总分领先 Qwen3.8-27B（官方自报），之后会蒸馏出 3B 版本。
+https://huggingface.co/Nanbeige/Nanbeige4.3-33B
+
+#2 deepseek-ai/DeepSeek-V4.1-Flash-1017：已经是连续第二周上榜，这周的热度主要来自本地部署：ISTA-DASLab 的非均匀量化 GGUF 压到 2 bit，三项平均分几乎不掉，加上 llama.cpp 正式支持。
+https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017
+
+#3 LiquidAI/LFM3-1.7B：卷积、滑动窗口和全局注意力三路混合的端侧模型，4 bit 只要约 1GB，智能体任务上领先更大的 Qwen3.5，知识类和超长上下文则偏弱。
+https://huggingface.co/LiquidAI/LFM3-1.7B
+
+#4 nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B：语音识别大模型，用一句自然语言指令决定逐字转写、书面清理、说话人标注还是翻译，并且自带词级时间戳。
+https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B
+
+#5 mistralai/Mistral-Large-4-1T-A52B：Mistral 在欧洲自建机房从零训练的约 1T 参数多模态 MoE，用稀疏索引注意力支持 1M 上下文，编程智能体指数接近头部开源模型。
+https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B
+
+数据来源：Hugging Face Trending（2026-10-31 03:12 PDT 抓取），同一模型的 GGUF / 量化 / 去审查衍生仓库已合并计入原模型。

@@ -1,0 +1,500 @@
+{
+ "snapshot": {
+  "time": "Sat Nov  7 18:15:12 CST 2026（盒子本地时间，UTC+8）",
+  "endpoint": "https://huggingface.co/api/models?sort=trendingScore&limit=40&full=true",
+  "merge_policy": "同一模型的量化 / GGUF / 去审查 / Base 等衍生仓库合并计入原模型，按组内最高名次排序",
+  "merges_affecting": [
+   "Qwen/Qwen3.8-27B（#8）← DavidAU/…-Heretic-Uncensored-…-GGUF（#10）",
+   "deepseek-ai/DeepSeek-V4.1-Flash-1017（#15）← AtomicChat/…-Uncensored-GSQ-RCO-GGUF（#11）、OBLITERATUS/…-obliterated（#14）、ISTA-DASLab/…-GSQ-RCO-Coder-GGUF（#27）"
+  ],
+  "runners_up": [
+   "burner22/numbat（#6，自称 Anthropic 泄露的预训练检查点，来源无法核实，未纳入）",
+   "FusionCow/Sulphur-3（#7，早期访问，无模型卡内容）",
+   "Qwen/Qwen3.8-27B（#8）"
+  ]
+ },
+ "items": {
+  "kimi": {
+   "rank": 1,
+   "name": "Kimi K3.1 Pro",
+   "org": "moonshotai",
+   "repo": "moonshotai/Kimi-K3.1-Pro",
+   "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+   "type": "多模态智能体大模型（image-text-to-text）· 2.8T MoE",
+   "trending_position": 1,
+   "likes": 1580,
+   "downloads_30d": 22571,
+   "trendingScore": 1027,
+   "createdAt": "2026-11-02T04:13:51.000Z",
+   "pipeline_tag": "image-text-to-text",
+   "merged": [],
+   "facts": {
+    "params": "2.8T 总参数 · 104B 激活",
+    "layers": "93 层：69 层 KDA 线性注意力 + 24 层 Gated DSA 稀疏注意力（top-k 2048）；K3 的全注意力 Gated MLA 层换成 Gated DSA",
+    "moe": "896 专家选 16 + 2 共享 · latent MoE 维度 3584",
+    "quant": "MXFP4 权重 / MXFP8 激活（量化感知训练）",
+    "vision": "MoonViT-V2 401M",
+    "context": "1M",
+    "training": "基于 Kimi K3 加大后训练算力，数百个下游领域联合 RL",
+    "license": "Kimi K3.1-Pro License（改版 MIT：MaaS 且年收入超 2000 万美元需另签协议；超大产品需显示名称）",
+    "released": "API 10/23 上线；权重 11/02 上传（博客称 11/4 前放出）"
+   },
+   "bench_card": {
+    "cols": [
+     "Kimi K3.1 Pro",
+     "Claude Opus 5.5",
+     "GPT-6 Astra",
+     "DeepSeek-V4.1-Flash-1017"
+    ],
+    "Terminal-Bench 4.0": [
+     65.7,
+     66.4,
+     58.2,
+     42.3
+    ],
+    "BenchCAD w/ tools": [
+     92.7,
+     96.2,
+     95.9,
+     81.6
+    ],
+    "OfficeQA Pro v2": [
+     64.4,
+     62.2,
+     54.4,
+     40.4
+    ],
+    "HLE-Diamond": [
+     39.4,
+     60.9,
+     65.8,
+     21.6
+    ],
+    "ExploitBench": [
+     74.7,
+     91.0,
+     100,
+     null
+    ],
+    "source": "moonshotai/Kimi-K3.1-Pro 模型卡（官方自报；对手分数部分来自各家报告/排行榜，见模型卡脚注）"
+   },
+   "cyber": {
+    "xdev_bench_hard_pass3": {
+     "未做网络安全数据剔除的检查点": 90.5,
+     "发布版 K3.1 Pro": 81.0
+    },
+    "source": "Kimi K3.1 Pro 技术博客（官方自报，内部基准）"
+   },
+   "third_party": {
+    "Artificial Analysis": {
+     "intelligence_index_v5_0_1": 46.45,
+     "rank": "开源大模型同类第 1 / 26",
+     "time_per_task_min": 36.2,
+     "output_tok_s": 33,
+     "cost_per_task_usd": 3.68,
+     "price_in_out_per_1M_usd": [
+      2.0,
+      10.0
+     ],
+     "checked": "2026-11-07",
+     "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+     "open_weights_index": {
+      "Kimi K3.1 Pro": 46.45,
+      "DeepSeek V4.1 Flash 1017": 32.59,
+      "GLM-5.3": 31.65,
+      "MiMo-V2.6-Pro": 29.89,
+      "Mistral Large 4": 26.12
+     },
+     "proprietary_ref": {
+      "Claude Opus 5.5 (Max)": 59.11,
+      "GPT-6 Astra (Max)": 56.85,
+      "Claude Fable 5.1 (Max)": 49.16
+     }
+    }
+   },
+   "community": {
+    "#12（第三方 argodrive 移植）": "单张 96 GB 显卡本地运行：约 2 tok/s 生成、40 tok/s 预填充（发帖者自述，未核实）",
+    "#7（NVFP4 移植笔记）": "检查点约 1.5 TB（路由专家已是 MXFP4，其余 BF16）；与 K3 相比新增 120 个索引器张量",
+    "#5": "用户反映模型强烈坚持“Kimi”人设，系统提示难以改变人设（社区观点，概述）",
+    "#4/#11": "多人请求发布更小尺寸版本（社区观点，概述）"
+   },
+   "sources": [
+    "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+    "https://www.kimi.ai/blog/kimi-k3-1-pro",
+    "https://artificialanalysis.ai/models/kimi-k3-1-pro"
+   ],
+   "self_reported": [
+    "bench_card",
+    "cyber"
+   ]
+  },
+  "idol": {
+   "rank": 2,
+   "name": "Idol",
+   "org": "speridlabs",
+   "repo": "speridlabs/idol",
+   "url": "https://huggingface.co/speridlabs/idol",
+   "type": "图像转 3D（image-to-3d）· 单图生成 3D 高斯",
+   "trending_position": 2,
+   "likes": 994,
+   "downloads_30d": 20689,
+   "trendingScore": 706,
+   "createdAt": "2026-10-28T15:55:17.000Z",
+   "pipeline_tag": "image-to-3d",
+   "merged": [],
+   "facts": {
+    "params": "自有 0.66B（DiT 370.6M + 八叉树解码器 50.8M + 高斯解码器 237.3M）；整条流水线约 1.80B（含 BiRefNet、DINOv3 ViT-H+/16、FLUX.2 VAE）",
+    "pipeline": "BiRefNet 抠图与裁切 → DINOv3 + FLUX.2 VAE 编码 → DiT 去噪 → 八叉树解码 → 高斯解码 → 标准 3DGS .ply",
+    "gaussians": "32,768 – 1,048,576（32 的倍数，默认 262,144）",
+    "vram": "峰值 7.2 GB",
+    "license": "Apache-2.0",
+    "gated_deps": "需先申请 facebook/dinov3-vith16plus 与 black-forest-labs/FLUX.2-dev（仅 VAE）的访问权限",
+    "inconsistency": "模型卡开头写“under 2 seconds”，但其 GPU 表格中最快为 B300 3.4 秒（262,144 高斯，50 步）；视频采用表格数字"
+   },
+   "bench_card": {
+    "cols": [
+     "Idol",
+     "TripoSplat",
+     "TRELLIS",
+     "LGM"
+    ],
+    "PSNR": [
+     12.25,
+     11.76,
+     11.89,
+     12.46
+    ],
+    "SSIM": [
+     0.726,
+     0.712,
+     0.716,
+     0.722
+    ],
+    "LPIPS": [
+     0.213,
+     0.225,
+     0.235,
+     0.237
+    ],
+    "IoU": [
+     0.862,
+     0.86,
+     0.845,
+     0.834
+    ],
+    "DINOv2": [
+     0.781,
+     0.743,
+     0.754,
+     0.575
+    ],
+    "CLIP": [
+     0.885,
+     0.868,
+     0.868,
+     0.784
+    ],
+    "Sharpness distance": [
+     0.81,
+     1.03,
+     0.97,
+     1.22
+    ],
+    "Request time s": [
+     6.8,
+     9.9,
+     7.1,
+     1.1
+    ],
+    "note": "LGM 的 PSNR 最高但结果明显模糊（官方注：PSNR 是平方像素误差的平均）",
+    "source": "speridlabs/idol 模型卡（官方自报，1×H100）"
+   },
+   "gpu_time": {
+    "B300": 3.4,
+    "H100": 6.7,
+    "RTX 5090": 14.1,
+    "RTX 4090": 19.1,
+    "RTX 3080": 46.2,
+    "source": "idol 模型卡（官方，50 步，262,144 高斯，8 张图中位数）"
+   },
+   "community": {
+    "#6": "社区 PR：RTX 5070 中位数 41.8 秒",
+    "#3": "有用户因 DINOv3 访问申请被拒无法运行（社区观点，概述）"
+   },
+   "demo": {
+    "space": "speridlabs/idol（官方 Space）",
+    "endpoint": "/show_default_example（Space 预置的背包示例结果，无需 GPU 配额）",
+    "file": "demo/idol_default.ply（262,144 高斯）",
+    "render": "demo/render_splat.py：本地用 numpy+matplotlib 做简化点渲染转台（非真正的高斯光栅化）",
+    "input": "Space 仓库 examples/obj-backpack.webp",
+    "failed": "用自备图片（Wikimedia Commons 茶壶，CC BY 4.0）调用 /run 时匿名 ZeroGPU 配额不足，未得到结果"
+   },
+   "sources": [
+    "https://huggingface.co/speridlabs/idol",
+    "https://speridlabs.com/research/idol"
+   ],
+   "self_reported": [
+    "bench_card",
+    "gpu_time"
+   ]
+  },
+  "coder3d": {
+   "rank": 3,
+   "name": "Qwen3.5-4B-3D-Coder",
+   "org": "ccore",
+   "repo": "ccore/Qwen3.5-4B-3D-Coder",
+   "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
+   "type": "代码生成 · Qwen3.5-4B 微调（Three.js 3D 场景）",
+   "trending_position": 3,
+   "likes": 816,
+   "downloads_30d": 221506,
+   "trendingScore": 414,
+   "createdAt": "2026-10-25T05:43:34.000Z",
+   "pipeline_tag": null,
+   "merged": [],
+   "sibling": {
+    "repo": "ccore/Qwen3.5-4B-GLB-3D-Coder",
+    "note": "同作者、同底座的姊妹模型（GLB 游戏资产），原榜 #19；画面中一并介绍，但不计为同一模型、不参与排名",
+    "trending_position": 19,
+    "likes": 233,
+    "downloads_30d": 24479,
+    "trendingScore": 211,
+    "createdAt": "2026-11-01T22:30:01.000Z",
+    "pipeline_tag": "text-generation"
+   },
+   "facts": {
+    "base": "Qwen/Qwen3.5-4B（独立微调，非 Qwen 官方）",
+    "data": "4,146 条合成样本（3,933 训练 / 213 验证），由 MiniMax M3.1 Flash 生成，含完整思考与 HTML/JS；41 个领域；最长 71,229 token，不截断",
+    "train": "全量微调约 59 小时 10 分 + LoRA 45 分 20 秒 ≈ 59 小时 55 分；每次单卡（RTX PRO 6000 96GB / L4）；无 RL",
+    "lora": "较长的 LoRA 分支先变好后变差，重复变量声明增多，被弃用，回到全量微调",
+    "license": "Apache-2.0（数据集 MIT）",
+    "eval": "8 个开发期提示词；Checkpoint 8 全部通过，共 18 次调用，其中 8 次被推理循环中断；6 个保留原始代码、2 个做了局部修复",
+    "glb": "GLB-3D-Coder：生成带 Export GLB 按钮的 Three.js 页面，可导入 Godot；数据集 3,918 条、40 个领域；平均输出约 20K token"
+   },
+   "eval_rows": {
+    "Voxel ancient Rome": 1,
+    "Kyoto temple": 1,
+    "Venice canal": 3,
+    "Victorian library": 1,
+    "Alpine castle": 1,
+    "Container harbour": 5,
+    "Regional airport": 3,
+    "Pool table": 3,
+    "source": "Qwen3.5-4B-3D-Coder 技术报告 Table 4（作者自测，探索性）"
+   },
+   "community": {
+    "#15": "作为大模型的子代理、分步构建效果好（社区观点，概述）",
+    "#11": "llama-cli 下出现循环，repeat-penalty 1.01–1.05 有帮助（社区反馈）",
+    "#14": "RTX 5060 Q8 约 70–80 tok/s（用户自述）；复杂提示（A320）效果不稳定"
+   },
+   "demo": {
+    "space": "akhaliq/qwen35-3d-coder-studio",
+    "failed": "匿名 ZeroGPU 单次请求 330 秒超过上限，未得到实测输出；画面使用作者模型卡中的示例图"
+   },
+   "sources": [
+    "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
+    "https://huggingface.co/ccore/Qwen3.5-4B-GLB-3D-Coder"
+   ],
+   "self_reported": [
+    "eval_rows"
+   ]
+  },
+  "ltx": {
+   "rank": 4,
+   "name": "LTX-2.5",
+   "org": "Lightricks",
+   "repo": "Lightricks/LTX-2.5",
+   "url": "https://huggingface.co/Lightricks/LTX-2.5",
+   "type": "音视频生成（image-to-video 等）· 22B DiT",
+   "trending_position": 4,
+   "likes": 10904,
+   "downloads_30d": 2643778,
+   "trendingScore": 377,
+   "createdAt": "2026-07-23T07:55:24.000Z",
+   "pipeline_tag": "image-to-video",
+   "merged": [],
+   "facts": {
+    "created": "2026-07-23 创建（最后修改 10-11）",
+    "new": "原生多镜头一次生成；按场景复杂度动态分配算力；扩散视频解码器取代 VAE 重建；定制 Gemma 4 12B 文本编码器；提示词增强；可选时长预测头；蒸馏版质量大幅提升",
+    "arch_paper": "LTX-2（arXiv:2601.03233）：非对称双流 Transformer，14B 视频流 + 5B 音频流，双向音视频交叉注意力，模态感知 CFG",
+    "ckpt": "22B DiT（dev / distilled 8 步，bf16 / int8 / NVFP4）",
+    "license": "LTX-2.x Community License：年收入 < 1000 万美元免费商用；以上需付费协议",
+    "lora_compat": "官方称大多数 LTX-2.3 的 LoRA 可直接用于 2.5"
+   },
+   "likes_check": {
+    "LTX-2.5": {
+     "total": 10905,
+     "new_since_aug": 6288,
+     "share_new": 57.7,
+     "by_month": {
+      "2026-08": 1110,
+      "2026-09": 2101,
+      "2026-10": 2612,
+      "2026-11": 465
+     }
+    },
+    "MiniMax-H3": {
+     "total": 6640,
+     "new_since_aug": 1387,
+     "share_new": 20.9,
+     "by_month": {
+      "2026-08": 690,
+      "2026-09": 410,
+      "2026-10": 240,
+      "2026-11": 47
+     }
+    },
+    "method": "公开点赞列表 /api/models/<repo>/likers，按账号 _id（ObjectId）前 8 位解析账号创建时间（UTC），2026-11-07 抓取；只能说明点赞账号的注册时间，不能证明刷量或谁在操作",
+    "community": "讨论 #97 首先提出质疑并给出同样方法（社区观点）",
+    "likes_w44": 10007,
+    "downloads_w44": 2441077
+   },
+   "third_party": {
+    "Artificial Analysis Video Arena": {
+     "text-to-video": {
+      "LTX-2.5 Fast": [
+       26,
+       941.95
+      ],
+      "LTX-2.5 Pro": [
+       27,
+       940.64
+      ],
+      "LTX-2.3 Pro": [
+       30,
+       883.45
+      ],
+      "MiniMax H3 (768p)": [
+       3,
+       1160.27
+      ],
+      "Wan 3.0": [
+       1,
+       1172.41
+      ]
+     },
+     "image-to-video": {
+      "LTX-2.5 Fast": [
+       29,
+       912.04
+      ],
+      "LTX-2.5 Pro": [
+       30,
+       911.09
+      ],
+      "LTX-2.3 Pro": [
+       32,
+       839.63
+      ],
+      "MiniMax H3 (768p)": [
+       4,
+       1132.99
+      ]
+     },
+     "checked": "2026-11-07",
+     "note": "[名次, Elo]；AA 测的是 LTX API 的 Fast / Pro 版本",
+     "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+    }
+   },
+   "sources": [
+    "https://huggingface.co/Lightricks/LTX-2.5",
+    "https://arxiv.org/abs/2601.03233",
+    "https://huggingface.co/Lightricks/LTX-2.5/discussions/97"
+   ],
+   "self_reported": []
+  },
+  "ripple": {
+   "rank": 5,
+   "name": "Ripple-65B-Preview",
+   "org": "ricursiveAI",
+   "repo": "ricursiveAI/Ripple-65B-Preview",
+   "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview",
+   "type": "文本生成 · 65B 稠密 Transformer",
+   "trending_position": 5,
+   "likes": 348,
+   "downloads_30d": 3803,
+   "trendingScore": 339,
+   "createdAt": "2026-11-04T02:41:21.000Z",
+   "pipeline_tag": null,
+   "merged": [],
+   "facts": {
+    "params": "65B 稠密 · 80 层 · d_model 5120 · 1Mi 上下文",
+    "arch": "瘦深比例；注意力头超配 + 提高 SWA:全局比例、缩短窗口；FFN 激活裁剪、门控注意力、全局 NoPE、value residual；Gemma 3N 式结构（由 Olmo 3 改来）",
+    "infra": "MFU 40%，简单分片、无定制算子、无量化（BF16）；团队 1→5 人",
+    "pretrain": "12T token（以英文与代码为主），8K 序列",
+    "post": "中训 200B → 长上下文 → SFT 183B → 长上下文 SFT → 混合 RL 700 步",
+    "cost": "全部研发成本 3,200 万美元（官方称约为此前开源编程智能体 SOTA 的十分之一）",
+    "rl": "TerminalBench 2.1 用 1.4M rollouts 达到 80.5，约为 Reflection Beam 的 1/70（官方）",
+    "ladder": "代码上计算效率较 Olmo 3 阶梯提升最高 16×（4B 规模，官方）",
+    "license": "Apache-2.0",
+    "local": "可装进 NVIDIA DGX Spark；提供 NVFP4 版"
+   },
+   "bench_card": {
+    "cols": [
+     "Ripple-65B",
+     "Reflection Beam 501B",
+     "Muse Spark Open 816B",
+     "Inkling 975B",
+     "Nemotron 3 Ultra 550B"
+    ],
+    "total_params_B": [
+     65,
+     501,
+     816,
+     975,
+     550
+    ],
+    "Terminal-Bench 2.1 (self-reported)": [
+     80.5,
+     80.1,
+     76.4,
+     63.8,
+     56.4
+    ],
+    "SWE-bench Pro v2.0 Hard": [
+     79.1,
+     76.5,
+     72.4,
+     39.6,
+     30.7
+    ],
+    "MMLU-Pro": [
+     84.2,
+     76.5,
+     87.9,
+     87.3,
+     86.8
+    ],
+    "SciCode": [
+     39.4,
+     49.2,
+     58.5,
+     46.1,
+     44.6
+    ],
+    "MCP Atlas": [
+     71.67,
+     80.8,
+     89.2,
+     76.0,
+     62.2
+    ],
+    "source": "ricursiveAI/Ripple-65B-Preview 模型卡（官方自报；斜体项为 Ricursive 自测的对手分数）"
+   },
+   "third_party": {
+    "Artificial Analysis": "未收录（2026-11-07 检查，ripple-65b / ripple-65b-preview 页面 404）"
+   },
+   "demo": {
+    "space": "akhaliq/ripple-65b-zerogpu",
+    "failed": "第一次调用只返回了“```bash\\nfind”就截断（约 102 秒），第二次匿名 ZeroGPU 配额耗尽；未用于画面"
+   },
+   "sources": [
+    "https://huggingface.co/ricursiveAI/Ripple-65B-Preview",
+    "https://www.ricursive.com/ripple"
+   ],
+   "self_reported": [
+    "bench_card"
+   ]
+  }
+ }
+}

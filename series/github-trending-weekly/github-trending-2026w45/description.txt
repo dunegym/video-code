@@ -1,0 +1,18 @@
+GitHub 本周热榜 Top 5（2026 年第 45 周 · 11 月 6 日）｜几乎全在围着智能体：补记忆、管界面、控编排、装技能，外加一个终身辅导。
+
+#1 thedotmack/claude-mem：跨会话持久化记忆，自动捕获工具观察、压缩成摘要，并在下次会话开始时注回上下文。
+https://github.com/thedotmack/claude-mem
+
+#2 Nutlope/hallmark：Together AI 的反「AI 味」设计技能，五十主题材质加浏览器里的 sloplint，跑在 Claude Code / Cursor / Codex 等上。
+https://github.com/Nutlope/hallmark
+
+#3 pingdotgg/t3code：Theo 团队开源的编码智能体控制面，用你已有的订阅在桌面、网页和手机上遥控本机智能体。
+https://github.com/pingdotgg/t3code
+
+#4 anthropics/skills：Anthropic 公开的 Agent Skills 示例仓库，覆盖文档办公、前端视觉、接口测试与技能创作模板。
+https://github.com/anthropics/skills
+
+#5 HKUDS/DeepTutor：港大数据科学实验室的终身个性化辅导系统，把辅导、研究、创作和练习连进同一个学习工作区。
+https://github.com/HKUDS/DeepTutor
+
+数据来源：GitHub Trending 周榜（https://github.com/trending?since=weekly），采集于 2026-11-06，排名按页面顺序。

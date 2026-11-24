@@ -1,0 +1,14 @@
+{
+ "space": "akhaliq/qwen35-3d-coder-studio",
+ "system_hint": "Use only the Three.js core ES module from https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.module.min.js. Do not import addons or legacy examples/js paths; implement any camera controls directly inside the HTML.",
+ "prompt": "Please create one self-contained HTML file with Three.js from cdnjs showing a small lighthouse on a rocky island with a wooden pier and a sailboat. Render it as a deliberate 3D voxel model built from visible cubic blocks, with clear depth, readable silhouettes, and solid spatial relationships.",
+ "runs": [
+  {
+   "max_tokens": 8000,
+   "secs": 1.3,
+   "result": {
+    "error": "AppError('The requested GPU duration (330s) is larger than the maximum allowedSubscribe to Hugging Face PRO to allow GPU tasks up to 40 min - https://huggingface.co/subscribe/pro?from=ZeroGPU')"
+   }
+  }
+ ]
+}

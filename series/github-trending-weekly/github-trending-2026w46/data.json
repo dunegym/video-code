@@ -1,0 +1,13 @@
+{
+ "_meta": {"source": "https://github.com/trending?since=weekly", "captured": "2026-11-13 18:15 (Asia/Shanghai)", "order": "page order", "timezone": "Asia/Shanghai"},
+ "sk":  {"rank": 1, "owner": "anthropics", "repo": "skills", "week": 6055, "total": 193902, "language": "Python", "license": "未声明 SPDX", "created": "2025-09-22",
+         "what": "官方 Agent Skills 仓库：文档技能改用 Apache 2.0", "short": "官方 Agent Skills 仓库"},
+ "omb": {"rank": 2, "owner": "milind-soni", "repo": "OpenMausBot", "week": 9104, "total": 21941, "language": "TypeScript", "license": "Apache-2.0", "created": "2026-08-11",
+         "what": "聊天软件式智能体团队：各有模型、电脑和应用", "short": "开源智能体团队聊天应用"},
+ "ab":  {"rank": 3, "owner": "vercel-labs", "repo": "agent-browser", "week": 4601, "total": 50480, "language": "Rust", "license": "Apache-2.0", "created": "2026-01-11",
+         "what": "给智能体的浏览器命令行：读无障碍树，按编号操作", "short": "智能体专用浏览器 CLI"},
+ "ao":  {"rank": 4, "owner": "NVIDIA", "repo": "auto-ontology", "week": 5802, "total": 12398, "language": "Python", "license": "Apache-2.0", "created": "2026-04-27",
+         "what": "给数据智能体的业务语义层：先懂指标，再写 SQL", "short": "数据智能体的语义层"},
+ "cf":  {"rank": 5, "owner": "cloudflare", "repo": "security-audit-skill", "week": 10700, "total": 71475, "language": "JavaScript", "license": "MIT", "created": "2026-06-18",
+         "what": "让编码智能体做可复核的多阶段安全审计", "short": "可复核的 AI 安全审计"}
+}

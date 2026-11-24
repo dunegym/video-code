@@ -1,0 +1,18 @@
+{
+ "brand": "GitHub",
+ "title_suffix": "本周热榜",
+ "top": "Top 5",
+ "date": "2026 · 第 44 周 · 10月30日",
+ "sub1": "给智能体立规矩、补专业",
+ "sub2": "AI 时代的漏洞攻防",
+ "metric": "week",
+ "metric_label": "本周",
+ "desc_key": "short",
+ "descs_wide": {
+  "security-audit-skill": "对抗式 AI 安全审计",
+  "php-src": "紧急修复两个 RCE",
+  "claude-seo": "Claude Code SEO 审计",
+  "impeccable": "设计词汇 + 检测器",
+  "andrej-karpathy-skills": "四条编码原则"
+ }
+}

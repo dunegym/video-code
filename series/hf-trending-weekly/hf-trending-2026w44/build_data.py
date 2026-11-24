@@ -1,0 +1,107 @@
+"""汇总 data.json：热榜快照（合并后 Top 5）+ 画面中所有图表数字及来源。"""
+import json
+tr = {m["id"]: (i, m) for i, m in enumerate(json.load(open("raw/trending_models.json")), 1)}
+def hf(repo):
+    i, m = tr[repo]
+    return dict(trending_position=i, likes=m["likes"], downloads_30d=m["downloads"], trendingScore=m["trendingScore"], createdAt=m.get("createdAt"), pipeline_tag=m.get("pipeline_tag"))
+def merged(repos, notes):
+    return [dict(repo=r, note=n, **hf(r)) for r, n in zip(repos, notes)]
+items = {}
+items["nanbeige"] = dict(rank=1, name="Nanbeige4.3-33B", org="Nanbeige", repo="Nanbeige/Nanbeige4.3-33B", url="https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+    type="文本生成 · 33B 稠密智能体模型", **hf("Nanbeige/Nanbeige4.3-33B"), merged=[],
+    facts={"params": "33.1B 稠密（LlamaForCausalLM）", "layers": "52 层 · hidden 7168 · GQA 56 查询头 / 8 KV 头", "context": "512K（rope_theta 1.2e8；Base 版 131K）",
+           "license": "Apache-2.0", "team": "南北阁（BOSS直聘 / 看准科技旗下，联系邮箱 @kanzhun.com）",
+           "strategy": "先做高容量“教师智能体”，再蒸馏到小模型（Nanbeige4.3-3B 即将推出）",
+           "template": "preserve_thinking：多轮工具调用/办公/代码智能体建议保留前几轮思考；工具调用推荐 XML 格式",
+           "kv_cache_third_party": "16 bit 下 212,992 字节/token，512K 满上下文约 111.7 GB；4 bit 权重约 19.8 GB（the9.pro 第三方测算）"},
+    bench_card={"cols": ["Nanbeige4.3-33B", "Qwen3.8-27B", "Muse-Glimmer-30B", "Gemma4-31B"],
+                "Terminal-Bench 2.1": [80.9, 73.0, 61.8, 47.2], "Terminal-Bench 4.0": [23.8, 6.3, 1.6, 0.0], "DeepSWE": [65.5, 42.5, 4.4, 2.7],
+                "SWE-Bench Pro": [60.3, 61.7, 51.2, 36.9], "Automation Bench": [54.2, 38.3, 15.2, 9.7], "JobBench": [44.8, 34.5, 16.6, 9.0],
+                "GDPval": [84.8, 86.4, 75.8, 71.4], "Claw-Eval": [78.3, 75.2, 57.3, 44.2], "DeepPlanning": [63.3, 49.2, 21.4, 19.4],
+                "YC-bench ($)": [1025437, 641290, 513978, 265152], "GPQA-Diamond": [89.5, 89.2, 83.5, 91.3], "AIME26": [95.2, 94.5, 94.7, 89.2],
+                "source": "Nanbeige/Nanbeige4.3-33B 模型卡表格（官方自报，preserve_thinking=true）",
+                "note": "模型卡柱状图与表格个别数字不一致（如 JobBench 的 Muse-Glimmer：图 18.3 / 表 16.6），画面使用表格数字"},
+    jobbench={"overall": {"Nanbeige4.3-33B": 44.80, "Qwen3.8-27B": 34.51, "Muse-Glimmer-30B": 16.60}, "occupations": 35,
+              "rows": {"Web administrators": [72.0, 36.0], "Online merchants": [68.5, 46.9], "Technical writers": [72.1, 53.7], "Lawyers": [50.0, 25.0],
+                       "Customer service representatives": [21.1, 31.6], "Secretaries & administrative assistants": [28.8, 47.5],
+                       "Mechanical engineering technicians": [43.9, 56.7], "Healthcare managers": [27.8, 45.3]},
+              "source": "Nanbeige 模型卡 occupation.png（官方自报）"},
+    third_party={"Artificial Analysis": "未收录（2026-10-31 检查，页面 404）", "the9.pro": "第三方汇总：KV 缓存测算；指出客服、秘书类职业不如 Qwen3.8"},
+    sources=["https://huggingface.co/Nanbeige/Nanbeige4.3-33B"], self_reported=["bench_card", "jobbench"])
+items["deepseek"] = dict(rank=2, name="DeepSeek-V4.1-Flash-1017", org="deepseek-ai", repo="deepseek-ai/DeepSeek-V4.1-Flash-1017",
+    url="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017", type="多模态大语言模型（image-text-to-text）· 连续第二周上榜", **hf("deepseek-ai/DeepSeek-V4.1-Flash-1017"),
+    merged=merged(["ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF", "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF"],
+                  ["ISTA-DASLab 非均匀量化 GGUF", "第三方去审查（abliterated）GGUF，gated，未读取内容"]),
+    facts={"params": "763.2B 总参数 · 384 专家选 6", "license": "MIT", "orig_size_est": "原版 safetensors 约 765 GB（FP8 稠密 + FP4 路由专家，按 dtype 字节数估算）",
+           "llamacpp": "llama.cpp b11870（2026-10-25）起支持 DeepSeek-V4.1（含图像）"},
+    ista={"method": "GSQ-RCO：梯度搜索为每个张量单独分配量化类型，在总大小预算内按敏感度分配精度（arXiv:2604.18556 / 2605.00649）",
+          "builds": [{"id": "IQ1_M", "bpw": 1.75, "total_gb": 231.32, "recovery": 98.7}, {"id": "IQ2_XXS", "bpw": 2.00, "total_gb": 248.84, "recovery": 100.0},
+                     {"id": "IQ2_XS", "bpw": 2.25, "total_gb": 265.83, "recovery": 99.8}],
+          "engram": "两张 Engram 查找表（196.6B 参数）固定 IQ4_NL（110.6 GB），每 token 只读一行，可内存映射留在 SSD 上",
+          "strata": "配合第三方引擎 Strata：单张 12 GB 显卡即可运行，其余放系统内存",
+          "bench": {"cols": ["AIME25", "GPQA-D", "LCB v6", "均值"], "Base": [100.0, 90.91, 89.71, 93.54], "IQ1_M": [100.0, 88.38, 88.57, 92.32],
+                    "IQ2_XXS": [100.0, 90.91, 89.71, 93.54], "IQ2_XS": [100.0, 90.40, 89.71, 93.37]},
+          "source": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF 模型卡（量化作者自测，reasoning effort 50）"},
+    third_party={"Artificial Analysis": {"intelligence_index_v5": 32, "rank": "同类第 1 / 22", "output_tokens_per_s": 175, "price_in_out_per_1M_usd": [0.3, 1.2],
+                 "cost_per_task_usd": 0.60, "tokens_to_run_index": "170M", "checked": "2026-10-31", "url": "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017",
+                 "note": "上周（旧版指数）为 45 分；AA 指数版本已更新为 v5，两周分数不可直接比较"}},
+    sources=["https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017", "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
+             "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017"], self_reported=["ista.bench"])
+items["lfm3"] = dict(rank=3, name="LFM3-1.7B", org="LiquidAI", repo="LiquidAI/LFM3-1.7B", url="https://huggingface.co/LiquidAI/LFM3-1.7B",
+    type="文本生成 · 1.7B 端侧混合架构模型", **hf("LiquidAI/LFM3-1.7B"),
+    merged=merged(["LiquidAI/LFM3-1.7B-GGUF", "AtomicChat/LFM3-1.7B-Uncensored-GGUF"], ["官方 GGUF", "第三方去审查 GGUF"]),
+    facts={"params": "1.73B（BF16）", "layers": "24 层三路混合：13 层门控短卷积（核 7）+ 5 层滑动窗口注意力（窗口 256）+ 6 层全局注意力",
+           "attention": "按头 sigmoid 门控注意力（抑制量化离群值）；全局层部分 RoPE（一半维度不旋转）；三明治归一化",
+           "search": "硬件在环架构搜索：14 种设备/后端组合上实测", "context": "256K", "size_4bit": "4 bit 约 1 GB", "license": "LFM Open License v1.0",
+           "pretrain": "22T token，其中最后 3.5T 为中期训练（含智能体轨迹）",
+           "posttrain": "SFT（1.75T）→ 混合 RL（含长度惩罚）→ MOPD（多个专项 RL 教师蒸馏回一个学生）→ 真实环境智能体 RL",
+           "limits": "模型卡：不建议用于智能体编程和复杂推理"},
+    bench_card={"cols": ["LFM3-1.7B", "LFM2.5-2.6B", "MiniCPM5-2B", "Gemma4-E4B", "Qwen3.5-4B", "Qwen3.5-9B"],
+                "LiveClaw": [45.60, 14.70, 30.37, 20.36, 19.94, 35.77], "WebArena-Verified": [38.42, 3.02, 9.11, 17.06, 21.92, 28.94],
+                "AutomationBench": [41.29, 0.94, 4.71, 1.92, 8.67, 15.10], "BFCL V4": [71.39, 55.89, 62.65, 48.25, 55.12, 62.83],
+                "IFBench": [73.03, 60.48, 62.08, 44.56, 38.16, 48.84], "GPQA-Diamond": [63.37, 57.78, 65.15, 57.88, 75.76, 80.40],
+                "AA-Omniscience 不幻觉率": [92.93, 53.69, 84.44, 72.09, 13.64, 52.59], "RULER 128K": [65.56, 1.15, 37.96, 18.82, 84.63, 87.11],
+                "平均": [49.37, 31.55, 39.19, 31.74, 39.27, 47.24], "source": "LiquidAI/LFM3-1.7B 模型卡（官方自报）"},
+    edge={"iPhone 17 Pro": {"prefill": [1061, 316, 339, 229, 395], "decode": [43.6, 15.8, 15.5, 10.3, 15.4], "mem_gb": [1.90, 3.15, 4.53, 6.82, 6.15]},
+          "Apple M5 Max": {"decode": [237.1, 106.0, 100.3, 71.3, 86.9], "mem_gb": [2.25, 3.48, 5.16, 7.80, 6.69]},
+          "cols": ["LFM3-1.7B", "MiniCPM5-2B", "Qwen3.5-4B", "Qwen3.5-9B", "Gemma 4 E4B"], "source": "LFM3 模型卡 lfm3-edge-inference 图（官方自报，llama.cpp Q4_0）"},
+    third_party={"Artificial Analysis": "未收录（2026-10-31 检查，页面 404）"},
+    sources=["https://huggingface.co/LiquidAI/LFM3-1.7B", "https://www.liquid.ai/blog/lfm3"], self_reported=["bench_card", "edge"])
+items["nemotron"] = dict(rank=4, name="Nemotron-3.5-Transcribe", org="nvidia", repo="nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+    url="https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B", type="语音识别（ASR）· 语音大模型", **hf("nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B"), merged=[],
+    facts={"params": "约 34B 总参数 · 约 4.3B 激活", "arch": "并行专家编码器：Transformer ASR 编码器（600M）+ 冻结的 Nemotron-3 Diarization 说话人编码器（约 99M）→ Nemotron 3.5 Lightning 30B-A3B（Mamba-2 + MoE + 注意力混合）",
+           "instr": "转写风格由自然语言指令逐次指定：逐字/书面、上下文词表、说话人标注、事件、翻译",
+           "ctc": "CTC 时间戳头：生成之后再对齐，输出词级时间戳", "mtp": "MTP 推测解码（最多 8 个 token）；可选 DFlash2 块扩散草稿模型",
+           "coverage": "40 种语言 · 31 种可与英语互译 · 13 种语言说话人标注 · 最多 8 人 · 单段最长 1 小时 · 离线（非流式）",
+           "data": "1.72M 小时去重音频（含重复 6.53M）+ Granary v2", "license": "OpenMDW-1.1", "released": "2026-10-28"},
+    bench_card={"多说话人 cpWER": {"Nemotron": 15.80, "DiCoW + DiariZen": 16.83}, "偏好 ASR WER（指令）": {"Nemotron": 6.16, "Canary-Qwen": 8.36},
+                "英文 Open ASR（9 套）WER": {"Nemotron": 4.71, "Qwen3-ASR-1.7B": 4.94}, "长音频 WER": {"Nemotron": 10.98, "Parakeet-TDT-0.6B-v3": 13.37},
+                "多语言（7 种）WER": {"Nemotron": 4.62, "Qwen3-ASR-1.7B": 6.49}, "note": "越低越好；官方自报",
+                "serving": "单张 RTX PRO 6000 每秒处理 2,238 秒音频（NVFP4 + DFlash2，仅 NIM，未开源）；30 秒音频 0.13 秒"},
+    third_party={"TechCrunch 2026-10-28": "发布报道", "HF 博客（NVIDIA）": "称 VoiceArena 第一、David AI 说话人分离榜错误率最低（转述，未独立核实；模型卡注明训练数据含 David AI 授权数据，但 DAI-ASR-I18N 评测集未用于训练）"},
+    demo={"space": "hugging-apps/nemotron-3-5-transcribe（Hugging Face 的 hugging-apps 组织，非 NVIDIA 官方）", "file": "demo/nemotron_sample.json",
+          "audio": "demo/nemotron_test.wav：edge-tts 合成的 25 秒英文双人对话（含 um/uh 与重复）"},
+    sources=["https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B"], self_reported=["bench_card"])
+items["mistral"] = dict(rank=5, name="Mistral Large 4", org="mistralai", repo="mistralai/Mistral-Large-4-1T-A52B", url="https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+    type="多模态大语言模型（image-text-to-text）· 1T MoE", **hf("mistralai/Mistral-Large-4-1T-A52B"), merged=[],
+    facts={"params": "约 1T 总参数 · 49B 激活（含嵌入 52B）", "moe": "128 路由专家选 4 + 1 共享；首层稠密；72 层",
+           "attention": "MLA + DeepSeek 稀疏注意力式索引器（每次最多选 2048 个位置）；后段相邻层共享索引器，KV 跨层共享；RoPE:NoPE = 3:1；LeRope（YaRN + 每频率可学习乘子）",
+           "vision": "1.6B Pixtral 式视觉编码器", "context": "1M", "dspark": "内置 DSpark 推测解码草稿头：3 层 MLA，一次提 3 个 token，吞吐最高 1.9×（官方）",
+           "training": "欧洲自建机房 3,800 张 GB200 从零训练；10/6 预览 → 再做 3 周 RL → 10/29 放出权重",
+           "license": "Mistral Ecosystem Open-Weight License（改版 MIT）：商用可，做模型即服务（MaaS）需另签商业许可"},
+    vendor={"AA Coding Agent Index": "48%（与 GLM-5.3 接近，token 少 47%）", "Terminal-Bench 4.0": "41%（比预览版 +13 分）", "BrowseComp": "84.5%",
+            "恶意网络请求拒绝率": "96.6%", "source": "Mistral 模型卡 / HF 博客（官方自报）"},
+    third_party={"Artificial Analysis": {"intelligence_index_v5": 26, "rank": "第 9 / 22", "output_tokens_per_s": 161.3, "price_in_out_per_1M_usd": [0.7, 2.1],
+                 "cost_per_task_usd": 2.06, "tokens_to_run_index": "110M", "ttft_s": 1.42, "checked": "2026-10-31", "url": "https://artificialanalysis.ai/models/mistral-large-4"},
+                 "coding_agent_index_chart": {"Mistral Large 4": 48, "Beam 1.0": 20, "Muse Spark Open": 26, "Kimi K3": 41, "DeepSeek V4.1 Flash 1017": 46, "GLM-5.3": 49},
+                 "Unsloth": "1-bit 动态 GGUF 223–233 GB，top-1 一致率 91%", "HF 实测": "llama.cpp Q2_K · M3 Ultra 约 15 tok/s"},
+    sources=["https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B", "https://artificialanalysis.ai/models/mistral-large-4"], self_reported=["vendor"])
+repack = [("DeepSeek 1017", "deepseek-ai/DeepSeek-V4.1-Flash-1017", "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF", "ISTA GGUF"),
+          ("LFM3-1.7B", "LiquidAI/LFM3-1.7B", "LiquidAI/LFM3-1.7B-GGUF", "官方 GGUF")]
+charts = {"repack_downloads": [dict(model=a, original=o, original_dl=tr[o][1]["downloads"], repack=r, repack_dl=tr[r][1]["downloads"], label=l) for a, o, r, l in repack],
+          "source_note": "Hugging Face API downloads 字段（近 30 天；创建不足 30 天为创建以来；统计的是文件请求次数，分片多的仓库会偏高）"}
+out = dict(snapshot={"time": "2026-10-31 03:12:58 PDT（raw/snapshot_time.txt 记录为 18:12:58 CST）", "endpoint": "https://huggingface.co/api/models?sort=trendingScore&limit=40&full=true",
+                     "runners_up": ["baidu/Unlimited-OCR-2 (#6)", "Lightricks/LTX-2.5 (#7)"]}, items=items, on_screen_charts=charts)
+json.dump(out, open("data.json", "w"), ensure_ascii=False, indent=1)
+for k, v in items.items(): print(v["rank"], k, v["likes"], v["downloads_30d"], v["trendingScore"], [x["repo"] for x in v["merged"]])
+print(charts)

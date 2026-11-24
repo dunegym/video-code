@@ -1,0 +1,25 @@
+{
+  "brand": "Hugging Face",
+  "title_suffix": "本周热榜",
+  "top": "Top 5",
+  "date": "2026 · 第 47 周 · 11月21日",
+  "sub1": "循环 MoE · 全双工语音 · 编程代理适配 · 社区 LoRA 包 · 音视频生成",
+  "sub2": "新模型占了前排，但有的点赞数字要核对",
+  "metric": "likes",
+  "metric_label": "点赞",
+  "metric_prefix": "",
+  "descs": {
+    "inkling": "循环 MoE，本地多模态",
+    "haru": "全双工语音，点赞对不上",
+    "pi": "编程代理强化学习适配",
+    "sentinel": "社区 LoRA 合集",
+    "ltx": "音视频生成，点赞需打折扣"
+  },
+  "avatars": {
+    "inkling": "assets/proc/av_inkling.png",
+    "haru": "assets/proc/av_haru.png",
+    "pi": "assets/proc/av_pi.png",
+    "sentinel": "assets/proc/av_sentinel.png",
+    "ltx": "assets/proc/av_ltx.png"
+  }
+}

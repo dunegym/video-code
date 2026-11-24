@@ -1,0 +1,9 @@
+{
+ "space": "Lightricks/LTX-2.5",
+ "prompt": "The yellow emoji balloon slowly drifts upward over the night city as the camera gently pushes in; city lights twinkle and a soft wind hum is heard.",
+ "input_image": "flux_sample.png (FLUX 3 Klein Space output)",
+ "enhanced": "A medium shot frames a large, bright yellow smiley face balloon against a dark, starry night sky above a sprawling cityscape; the balloon is tethered by a thin string, and the camera gently pushes inward, capturing the texture of the balloon's surface and the dense backdrop of the city lights twinkling below, as the yellow emoji balloon slowly begins to drift upward; the city lights, rendered in rich, warm cinematic lighting, twinkle with a soft glow, and a soft wind humming sound is audible throughout the scene.",
+ "seed": 24,
+ "length": "73 frames (3.04s)",
+ "settings": "768x768, 3s, decoder=diffusion, prompt enhancer on"
+}

@@ -1,0 +1,238 @@
+"""GitHub 本周热榜 Top 5（2026 第 45 周）—— Manim CE 场景。
+时间轴由 timing_w45.json（TTS 词边界实测）驱动；GIF 演示由 assemble_w45.py 用 ffmpeg 叠加到占位图上，
+叠加参数由各场景写入 build_w45/ov_<scene>.json。"""
+import json, os
+import numpy as np
+from manim import *
+from PIL import Image as _PILImage
+_fromarray = _PILImage.fromarray
+def _fa(arr, mode=None):   # 兼容新版 Pillow：manim 用 2D 零数组 + mode=RGBA 创建空画布
+    if mode == "RGBA" and getattr(arr, "ndim", 3) == 2:
+        return _PILImage.new("RGBA", (arr.shape[1], arr.shape[0]))
+    return _fromarray(arr, mode) if mode else _fromarray(arr)
+_PILImage.fromarray = _fa
+
+config.pixel_width, config.pixel_height, config.frame_rate = 1920, 1080, 30
+TM = json.load(open("timing_w45.json", encoding="utf-8"))
+DATA = json.load(open("data.json", encoding="utf-8"))
+A = "assets/proc/"
+FONT, MONO = "Noto Sans CJK SC", "Noto Sans Mono CJK SC"
+BG, PANEL, BORDER = "#0D1117", "#161B22", "#30363D"
+FG, MUTED = "#E6EDF3", "#8B949E"
+BLUE, GREEN, YELLOW, PURPLE, ORANGE, RED = "#2F81F7", "#3FB950", "#E3B341", "#A371F7", "#F0883E", "#F85149"
+LANG_COLOR = {"JavaScript": "#F1E05A", "TypeScript": "#3178C6", "Python": "#3572A5", "CSS": "#563D7C", "C": "#A8B9CC", "Rust": "#DEA584"}
+REPO = {k: f"{v['owner']}/{v['repo']}" for k, v in DATA.items() if not k.startswith("_")}
+OWNER_AV = {k: v["owner"] for k, v in DATA.items() if not k.startswith("_")}
+
+def T(s, size=28, color=FG, font=FONT, **kw): return Text(s, font=font, font_size=size, color=color, **kw)
+def M(s, size=24, color=FG, **kw): return Text(s, font=MONO, font_size=size, color=color, **kw)
+def fit(m, w):
+    if m.width > w: m.scale_to_fit_width(w)
+    return m
+def box(w, h, color=BORDER, fill=PANEL, r=0.16, sw=2, op=1):
+    return RoundedRectangle(width=w, height=h, corner_radius=r, stroke_color=color, stroke_width=sw).set_fill(fill, op)
+def node(label, w=1.9, h=0.75, color=BLUE, size=24, sub=None, subsize=16):
+    b = box(w, h, color=color)
+    t = T(label, size, FG)
+    g = VGroup(t, T(sub, subsize, MUTED)).arrange(DOWN, buff=0.07) if sub else t
+    fit(g, w - 0.2)
+    if g.height > h - 0.12: g.scale_to_fit_height(h - 0.12)
+    g.move_to(b)
+    return VGroup(b, g)
+def chip(text, color=MUTED, dot=None, size=20, font=FONT):
+    t = Text(text, font=font, font_size=size, color=FG)
+    inner = VGroup(Dot(radius=0.07, color=dot), t).arrange(RIGHT, buff=0.12) if dot else VGroup(t)
+    b = RoundedRectangle(width=inner.width + 0.36, height=max(0.44, inner.height + 0.2), corner_radius=0.2,
+                         stroke_color=color, stroke_width=1.5).set_fill(PANEL, 1)
+    inner.move_to(b)
+    return VGroup(b, inner)
+def gh_star(r=0.13, color=YELLOW):
+    return Star(5, outer_radius=r, inner_radius=r * 0.45, color=color, fill_opacity=1, stroke_width=0)
+def avatar(pid, h=0.5):
+    im = ImageMobject(A + f"avatar_{OWNER_AV[pid]}.png").scale_to_fit_height(h)
+    return Group(im, SurroundingRectangle(im, buff=0, color=BORDER, stroke_width=1.5, corner_radius=0.06))
+def picture(path, width=None, height=None, credit=None, csize=17):
+    """官方图片 + 细边框 + 下方来源说明；返回 (图组, 来源文字)"""
+    im = ImageMobject(path)
+    if width: im.scale_to_fit_width(width)
+    if height and im.height > height: im.scale_to_fit_height(height)
+    fr = SurroundingRectangle(im, buff=0.02, color=BORDER, stroke_width=2)
+    g = Group(im, fr)
+    cap = T(credit, csize, MUTED).next_to(g, DOWN, buff=0.1) if credit else None
+    return g, cap
+CW = None
+def terminal(lines, w, size=18, title="bash", maxh=None, hl=None):
+    """终端窗口：lines 为真实命令输出。返回 (窗口, 行列表)"""
+    global CW
+    if CW is None: CW = M("M" * 20, size).width / 20 / size
+    cw = CW * size
+    rows = []
+    cont = False
+    for ln in lines:
+        n = len(ln) - len(ln.lstrip(" "))
+        s = ln.strip(" ") or "·"
+        col = GREEN if ln.startswith("$ ") or cont else FG
+        cont = ln.rstrip().endswith("\\")
+        if hl and any(k in ln for k in hl): col = YELLOW
+        t = M(s, size, col)
+        if s == "·": t.set_opacity(0)
+        rows.append((t, n))
+    g = VGroup()
+    y = 0
+    lh = size / 48 * 0.62
+    for t, n in rows:
+        t.move_to([0, 0, 0], aligned_edge=LEFT).shift(RIGHT * n * cw + DOWN * y)
+        g.add(t); y += lh
+    sc = 1.0
+    if g.width > w - 0.5: sc = (w - 0.5) / g.width
+    g.scale(sc, about_point=g.get_corner(UL))
+    h = g.height + 0.95
+    if maxh and h > maxh:
+        g.scale((maxh - 0.95) / g.height, about_point=g.get_corner(UL)); h = maxh
+    win = box(w, h, color=BORDER, fill="#010409", r=0.12)
+    bar = Rectangle(width=w - 0.04, height=0.38, stroke_width=0).set_fill("#161B22", 1).move_to(win.get_top() + DOWN * 0.21)
+    dots = VGroup(*[Dot(radius=0.065, color=c) for c in ["#FF5F57", "#FEBC2E", "#28C840"]]).arrange(RIGHT, buff=0.12)
+    dots.move_to(bar.get_left() + RIGHT * 0.4)
+    tt = M(title, 15, MUTED).move_to(bar)
+    g.move_to(win.get_corner(UL) + np.array([0.25, -0.6, 0]), aligned_edge=UL)
+    return VGroup(win, bar, dots, tt), g
+def to_px(m):
+    l, r = m.get_left()[0], m.get_right()[0]; t, b = m.get_top()[1], m.get_bottom()[1]
+    X = (l + config.frame_width / 2) / config.frame_width * 1920
+    Y = (config.frame_height / 2 - t) / config.frame_height * 1080
+    W = (r - l) / config.frame_width * 1920; H = (t - b) / config.frame_height * 1080
+    ev = lambda v: int(round(v / 2) * 2)
+    return ev(X), ev(Y), ev(W), ev(H)
+def lines_of(path, maxc=None):
+    out = open(path, encoding="utf-8").read().rstrip("\n").split("\n")
+    if maxc: out = [l if len(l) <= maxc else l[:maxc - 1] + "…" for l in out]
+    return out
+
+class Base(Scene):
+    key = ""
+    def setup(self):
+        self.camera.background_color = BG
+        self.tm = TM[self.key]; self.t = 0.0; self.ov = []
+    def sub_start(self, prefix):
+        return next(x["start"] for x in self.tm["subs"] if x["text"].startswith(prefix))
+
+    def cue(self, i): return self.tm["cues"][min(i, len(self.tm["cues"]) - 1)]["start"]
+    def P(self, *anims, rt=1.0, **kw):
+        self.play(*anims, run_time=rt, **kw); self.t += rt
+    def W(self, until):
+        if until > self.t + 1 / 30:
+            self.wait(until - self.t); self.t = until
+    def finish(self):
+        end = self.tm["total"]
+        self.W(end - 0.55)
+        self.P(*[FadeOut(m) for m in self.mobjects], rt=0.45)
+        self.W(end)
+        json.dump(self.ov, open(f"build_w45/ov_{self.key}.json", "w"), indent=1)
+    def overlay(self, clip, mob, t0, dur, ss=0.0, speed=1.0):
+        x, y, w, h = to_px(mob)
+        self.ov.append({"clip": clip, "t0": round(t0, 3), "dur": round(dur, 3), "ss": ss, "speed": speed,
+                        "x": x, "y": y, "w": w, "h": h})
+    def header(self, pid, section, color=BLUE):
+        d = DATA[pid]
+        av = avatar(pid, 0.5)
+        rk = T(f"#{d['rank']}", 34, YELLOW, weight=BOLD)
+        nm = M(REPO[pid], 24, FG)
+        sec = VGroup(Dot(radius=0.05, color=color), T(section, 18, MUTED)).arrange(RIGHT, buff=0.1)
+        g = Group(av, rk, nm, sec).arrange(RIGHT, buff=0.22).to_corner(UL, buff=0.32)
+        line = Line(LEFT * 7.1 + UP * 3.25, RIGHT * 7.1 + UP * 3.25, color=BORDER, stroke_width=1.5)
+        return Group(g, line)
+    def takeaway(self, s, y=-2.3):
+        tb = box(13.2, 0.72, color=GREEN, r=0.12).move_to(UP * y)
+        tk = fit(VGroup(T("启示", 24, GREEN, weight=BOLD), T(s, 26, FG)).arrange(RIGHT, buff=0.35), 12.6).move_to(tb)
+        return VGroup(tb, tk)
+    def counter(self, label, value, color, w=2.75):
+        b = box(w, 1.25)
+        lab = T(label, 20, MUTED).move_to(b.get_top() + DOWN * 0.3)
+        vt = ValueTracker(0)
+        num = always_redraw(lambda: fit(M(f"{int(vt.get_value()):,}", 38, color, weight=BOLD), w - 0.75)
+                            .move_to(b.get_center() + DOWN * 0.2 + RIGHT * 0.2))
+        st = always_redraw(lambda: gh_star(0.15, color).next_to(num, LEFT, buff=0.14))
+        return VGroup(b, lab, num, st), vt.animate(rate_func=rate_functions.ease_out_cubic).set_value(value)
+
+def folder_icon(color=BLUE, s=0.32):
+    tab = Rectangle(width=s * 0.45, height=s * 0.18, stroke_width=0).set_fill(color, 1)
+    body = Rectangle(width=s, height=s * 0.7, stroke_width=0).set_fill(color, 1)
+    tab.next_to(body, UP, buff=0).align_to(body, LEFT)
+    return VGroup(tab, body)
+def step_list(items, w, size=21, color=BLUE):
+    rows = VGroup()
+    for i, (a, b) in enumerate(items):
+        num = Circle(radius=0.2, color=color, stroke_width=2).set_fill(color, 0.15)
+        n = T(str(i + 1), 18, FG, weight=BOLD).move_to(num)
+        tt = fit(T(a, size, FG, weight=BOLD), w - 0.6)
+        txt = VGroup(tt)
+        if b: txt.add(fit(T(b, size - 4, MUTED), w - 0.6))
+        txt.arrange(DOWN, aligned_edge=LEFT, buff=0.06)
+        rows.add(VGroup(VGroup(num, n), txt).arrange(RIGHT, buff=0.2, aligned_edge=UP))
+    rows.arrange(DOWN, aligned_edge=LEFT, buff=0.3)
+    return rows
+def card_rows(title, rows, w, col=BLUE, size=22):
+    """概念卡片：标题 + 若干行（每行一个圆点）"""
+    t = T(title, 26, col, weight=BOLD)
+    rs = VGroup(*[VGroup(Dot(radius=0.06, color=c or col), fit(T(r, size, FG), w - 0.9)).arrange(RIGHT, buff=0.18) for r, c in rows])
+    rs.arrange(DOWN, aligned_edge=LEFT, buff=0.24)
+    inner = VGroup(t, rs).arrange(DOWN, aligned_edge=LEFT, buff=0.32)
+    b = box(w, inner.height + 0.7, color=col, fill="#0F141B")
+    inner.move_to(b).align_to(b.get_left() + RIGHT * 0.35, LEFT)
+    return VGroup(b, t, rs)
+
+
+# ───────────────────────────── 项目简介（数据保持 v1 快照；左栏垂直居中，减少底部留白）
+class IntroScene(Base):
+    pid = ""
+    def construct(self):
+        d = DATA[self.pid]
+        rank = T(f"#{d['rank']}", 104, YELLOW, weight=BOLD).to_corner(UL, buff=0.45)
+        rank_lab = T("本周热榜", 24, MUTED).next_to(rank, RIGHT, buff=0.25).align_to(rank, DOWN).shift(UP * 0.18)
+        av = avatar(self.pid, 0.46)
+        owner = M(d["owner"] + " /", 28, MUTED)
+        og = Group(av, owner).arrange(RIGHT, buff=0.15).next_to(rank, DOWN, buff=0.25).align_to(rank, LEFT)
+        repo = fit(M(d["repo"], 44, FG, weight=BOLD), 6.1).next_to(og, DOWN, buff=0.12).align_to(rank, LEFT)
+        chips = VGroup(chip(d["language"], dot=LANG_COLOR.get(d["language"], MUTED), size=22),
+                       chip(d["license"], size=22), chip("创建于 " + d["created"][:7], size=22)).arrange(RIGHT, buff=0.16)
+        fit(chips, 5.9)
+        chips.next_to(repo, DOWN, buff=0.32).align_to(rank, LEFT)
+        c1, a1 = self.counter("本周新增 Stars", d["week"], YELLOW, w=2.95)
+        c2, a2 = self.counter("总 Stars", d["total"], FG, w=2.95)
+        cards = VGroup(c1, c2).arrange(RIGHT, buff=0.2).next_to(chips, DOWN, buff=0.4).align_to(rank, LEFT)
+        what = fit(T(d["what"], 28, FG), 6.1).next_to(cards, DOWN, buff=0.45).align_to(rank, LEFT).shift(RIGHT * 0.2)
+        bar = Line(what.get_corner(UL) + LEFT * 0.15, what.get_corner(DL) + LEFT * 0.15, color=BLUE, stroke_width=4)
+        allg = Group(rank, rank_lab, og, repo, chips, cards, what, bar)
+        dy = 0.25 - (allg.get_top()[1] + allg.get_bottom()[1]) / 2
+        allg.shift(UP * dy)
+        self.P(FadeIn(rank, shift=RIGHT * 0.3), FadeIn(rank_lab), FadeIn(og), FadeIn(repo, shift=UP * 0.2), rt=0.8)
+        self.P(LaggedStart(*[FadeIn(c, shift=UP * 0.15) for c in chips], lag_ratio=0.2), rt=0.6)
+        self.W(self.cue(1) - 0.3)
+        self.P(FadeIn(c1), FadeIn(c2), rt=0.3)
+        self.P(a1, a2, rt=1.6)
+        self.P(FadeIn(what, shift=RIGHT * 0.2), Create(bar), rt=0.6)
+        self.W(self.cue(2) if len(self.tm["cues"]) > 2 else self.t)
+        self.right()
+        self.finish()
+    def right(self): pass
+
+TEAL, SKY = "#39C5CF", "#79C0FF"
+def note(s, size=17, w=6.6): return fit(T(s, size, MUTED), w)
+def hbars(items, x_lab, x_bar, y0, step, maxv, maxw, size=20, colors=None, hl=0):
+    """横向条形图：items=[(名称, 数值, 例子或None)]"""
+    rows = VGroup()
+    for i, it in enumerate(items):
+        name, v = it[0], it[1]
+        y = y0 - i * step
+        lab = T(name, size, FG).move_to([x_lab, y, 0], aligned_edge=RIGHT)
+        col = (colors[i] if colors else (GREEN if i < hl else BLUE))
+        bar = Rectangle(width=max(0.05, v / maxv * maxw), height=step * 0.62, stroke_width=0).set_fill(col, 0.9)
+        bar.move_to([x_bar, y, 0], aligned_edge=LEFT)
+        num = M(str(v), size - 1, MUTED).next_to(bar, RIGHT, buff=0.12)
+        g = VGroup(lab, bar, num)
+        if len(it) > 2 and it[2]:
+            g.add(fit(T(it[2], size - 5, MUTED), 4.2).next_to(num, RIGHT, buff=0.25))
+        rows.add(g)
+    return rows
+def bar_anim(rows, rt):
+    return LaggedStart(*[AnimationGroup(FadeIn(r[0]), GrowFromEdge(r[1], LEFT), *[FadeIn(x) for x in r[2:]]) for r in rows], lag_ratio=0.3, run_time=rt)

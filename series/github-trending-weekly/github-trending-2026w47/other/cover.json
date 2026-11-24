@@ -1,0 +1,17 @@
+{
+ "brand": "GitHub",
+ "title_suffix": "非AI类项目周热榜",
+ "top": "Top 4",
+ "date": "2026 · 第 47 周 · 11月20日",
+ "sub1": "设计系统 · 办公套件 · 理财应用 · 表盘工具",
+ "sub2": "本周非AI类项目只有这四项",
+ "metric": "week",
+ "metric_label": "本周",
+ "desc_key": "short",
+ "descs_wide": {
+  "astryx": "Meta 开源设计系统",
+  "HermesEnabler": "启用爱马仕表盘",
+  "sure": "开源个人理财应用",
+  "univer": "嵌入式 Office SDK"
+ }
+}

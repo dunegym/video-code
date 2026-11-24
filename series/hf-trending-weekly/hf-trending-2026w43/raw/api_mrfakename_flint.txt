@@ -1,0 +1,15 @@
+Client.predict() Usage Info
+---------------------------
+Named API endpoints: 1
+
+ - predict(message, system_prompt, max_new_tokens, temperature, top_p, top_k, api_name="/chat") -> (response, value_7)
+    Parameters:
+     - [Textbox] message: str (required)  
+     - [Textbox] system_prompt: str (not required, defaults to:   )  
+     - [Slider] max_new_tokens: float (not required, defaults to:   4096)  
+     - [Slider] temperature: float (not required, defaults to:   1.0)  
+     - [Slider] top_p: float (not required, defaults to:   0.95)  
+     - [Slider] top_k: float (not required, defaults to:   20)  
+    Returns:
+     - [Json] response: str | float | bool | list | dict (any valid json) 
+     - [Markdown] value_7: str 

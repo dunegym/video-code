@@ -1,0 +1,35 @@
+{
+ "space": "hugging-apps/nemotron-3-5-transcribe",
+ "audio": "demo/nemotron_test.wav (edge-tts 合成的双人英文对话，含口头禅与重复)",
+ "runs": [
+  {
+   "preset": "Verbatim transcription",
+   "instruction": "Audio transcription. Language: as spoken. Wording: verbatim, including fillers and repetitions. Formatting: punctuation and capitalization. Output: transcript only.",
+   "reasoning": false,
+   "temperature": 0.0,
+   "output": "Um, so okay, the uh the launch review is moved to Thursday, October twenty ninth at three thirty. Wait, Thursday? I thought I thought it was Friday. Do we still need the um the Kubernetes migration plan? Yeah, Priya will send the plan and the budget is about twelve thousand five hundred dollars.\n\n<sub>25.3s audio · 317 audio tokens · 64 output tokens · encode 0.8s · decode 4.0s (16.0 tok/s) · total 4.8s</sub>",
+   "secs": 17.9
+  },
+  {
+   "preset": "Clean transcript",
+   "instruction": "Audio transcription. Language: as spoken. Wording: omit fillers and accidental repetitions; keep the remaining spoken wording unchanged. Formatting: punctuation and capitalization. Output: transcript only.",
+   "reasoning": false,
+   "temperature": 0.0,
+   "output": "So, okay, the launch review is moved to Thursday, October twenty ninth, at three thirty. Wait, Thursday? I thought it was Friday. Do we still need the Kubernetes migration plan? Yeah, Priya will send the plan and the budget is about twelve thousand five hundred dollars.\n\n<sub>25.3s audio · 317 audio tokens · 58 output tokens · encode 1.3s · decode 3.7s (15.6 tok/s) · total 5.0s</sub>",
+   "secs": 16.0
+  },
+  {
+   "preset": "Speaker-attributed transcription",
+   "instruction": "Transcribe this audio with punctuation and capitalization. Include all spoken words and verbal fillers. Write numbers in their standard written form. Put speaker tags <spk:0> <spk:1> <spk:2> <spk:3> on the transcription.",
+   "reasoning": false,
+   "temperature": 0.0,
+   "output": "&lt;spk:0&gt; Um, so okay, the uh the launch review is moved to Thursday, October twenty ninth at three thirty. &lt;spk:1&gt; Wait Thursday, I thought I thought it was Friday. Do we still need the um the Kubernetes migration plan? &lt;spk:0&gt; Yeah, Priya will send the plan, and the budget is about twelve thousand five hundred dollars.\n\n<sub>25.3s audio · 317 audio tokens · 69 output tokens · encode 0.7s · decode 3.9s (17.5 tok/s) · total 4.7s</sub>",
+   "secs": 15.2
+  },
+  {
+   "preset": "custom translate",
+   "instruction": "Please translate the given speech to Chinese.",
+   "output": "嗯，好的，那个……发布评审会移到了10月29日星期四下午3点半。等等，星期四？我以为……我以为是星期五。我们还需要那份……嗯……Kubernetes迁移计划吗？是的。Priya会发送该计划，预算约为12,500美元。\n\n<sub>25.3s audio · 317 audio tokens · 82 output tokens · encode 0.0s · decode 4.4s (18.6 tok/s) · total 4.4s</sub>"
+  }
+ ]
+}

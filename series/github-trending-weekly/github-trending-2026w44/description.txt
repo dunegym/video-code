@@ -1,0 +1,18 @@
+GitHub 本周热榜 Top 5（2026 年第 44 周 · 10 月 30 日）｜一半在给编码智能体立规矩、补专业，另一半是 AI 时代的漏洞攻防。
+
+#1 cloudflare/security-audit-skill：Cloudflare 开源的安全审计技能，猎手找漏洞、全新验证者负责证伪，发现者永远不确认自己的发现。
+https://github.com/cloudflare/security-audit-skill
+
+#2 php/php-src：PHP 解释器本身，10 月 21 日紧急发布，修复两个无需认证即可远程执行代码的严重漏洞。
+https://github.com/php/php-src
+
+#3 AgriciDaniel/claude-seo：把整套 SEO 审计搬进 Claude Code，由总控技能按业务类型并行派出多个专职智能体，最后交回健康分和行动计划。
+https://github.com/AgriciDaniel/claude-seo
+
+#4 pbakaus/impeccable：给编码智能体一套设计词汇和不依赖大模型的检测器，专治一眼就能认出的“AI 味”界面。
+https://github.com/pbakaus/impeccable
+
+#5 multica-ai/andrej-karpathy-skills：一份六十多行的 CLAUDE.md，用四条原则对付 Karpathy 吐槽过的大模型写代码通病。
+https://github.com/multica-ai/andrej-karpathy-skills
+
+数据来源：GitHub Trending 周榜（https://github.com/trending?since=weekly），采集于 2026-10-30，排名按页面顺序。

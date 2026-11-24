@@ -1,0 +1,13 @@
+{
+ "_meta": {"source": "https://github.com/trending?since=weekly", "captured": "2026-10-30", "order": "page order"},
+ "cf":  {"rank": 1, "owner": "cloudflare", "repo": "security-audit-skill", "week": 14320, "total": 53298, "language": "JavaScript", "license": "MIT", "created": "2026-06-18",
+         "what": "让编码智能体做对抗式安全审计", "short": "对抗式验证的 AI 安全审计"},
+ "php": {"rank": 2, "owner": "php", "repo": "php-src", "week": 960, "total": 41732, "language": "C", "license": "BSD-3-Clause", "created": "2011-06-16",
+         "what": "PHP 解释器 · 10 月 21 日紧急修复两个 RCE", "short": "PHP 解释器，紧急修复 RCE"},
+ "seo": {"rank": 3, "owner": "AgriciDaniel", "repo": "claude-seo", "week": 4110, "total": 24197, "language": "Python", "license": "MIT", "created": "2026-02-07",
+         "what": "把整套 SEO 审计搬进 Claude Code", "short": "Claude Code 里的 SEO 审计"},
+ "imp": {"rank": 4, "owner": "pbakaus", "repo": "impeccable", "week": 9713, "total": 96244, "language": "Rust", "license": "Apache-2.0", "created": "2025-11-16",
+         "what": "给编码智能体的设计词汇 + 反“AI 味”检测器", "short": "给 AI 的设计词汇与检测器"},
+ "kp":  {"rank": 5, "owner": "multica-ai", "repo": "andrej-karpathy-skills", "week": 4250, "total": 226613, "language": "未标注语言", "license": "MIT（README）", "created": "2026-01-27",
+         "what": "一份 CLAUDE.md：四条编码原则", "short": "Karpathy 式四条编码原则"}
+}

@@ -1,0 +1,18 @@
+{
+ "brand": "GitHub",
+ "title_suffix": "本周热榜",
+ "top": "Top 5",
+ "date": "2026 · 第 45 周 · 11月6日",
+ "sub1": "补记忆 · 管界面 · 控编排 · 装技能",
+ "sub2": "外加一个终身辅导",
+ "metric": "week",
+ "metric_label": "本周",
+ "desc_key": "short",
+ "descs_wide": {
+  "claude-mem": "跨会话智能体记忆",
+  "hallmark": "反 AI 味设计技能",
+  "t3code": "智能体控制面",
+  "skills": "官方 Skills 示例",
+  "DeepTutor": "终身个性化辅导"
+ }
+}

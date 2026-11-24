@@ -1,0 +1,3 @@
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /workspace/hf-trending-2026w43-sat/.gvenv, got /workspace/hf-trending-2026w43-sat/demo/../.gvenv
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /workspace/hf-trending-2026w43-sat/.gvenv, got /workspace/hf-trending-2026w43-sat/demo/../.gvenv
+flint ok 19.7

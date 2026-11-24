@@ -1,0 +1,25 @@
+{
+  "brand": "Hugging Face",
+  "title_suffix": "本周热榜",
+  "top": "Top 5",
+  "date": "2026 · 第 43 周 · 10月24日",
+  "sub1": "大语言模型 · 编程模型 · 文生图 · 音视频",
+  "sub2": "这一周，大家比的是效率",
+  "metric": "likes",
+  "metric_label": "点赞",
+  "metric_prefix": "",
+  "descs": {
+    "deepseek": "KV 缓存约为上代 1/4",
+    "flint": "2.5B 激活的编程智能体",
+    "flux": "量化后 8GB 显卡可跑",
+    "moss": "先规划版面，再渲染长文本",
+    "ltx": "画面与声音一次生成"
+  },
+  "avatars": {
+    "deepseek": "assets/proc/av_deepseek.png",
+    "flint": "assets/proc/av_flint.png",
+    "flux": "assets/proc/av_flux.png",
+    "moss": "assets/proc/av_moss.png",
+    "ltx": "assets/proc/av_ltx.png"
+  }
+}

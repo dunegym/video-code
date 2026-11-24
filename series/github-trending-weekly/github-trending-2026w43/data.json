@@ -1,0 +1,68 @@
+{
+ "android": {
+  "rank": 4,
+  "owner": "android",
+  "repo": "skills",
+  "week": 1384,
+  "total": 9309,
+  "language": "Kotlin",
+  "license": "Apache-2.0",
+  "created": "2026-03-16",
+  "what": "Android 官方维护的 AI 智能体技能库",
+  "short": "Android 官方技能",
+  "takeaway": "官方知识正以「技能」的形式，直接交给智能体"
+ },
+ "ruflo": {
+  "rank": 3,
+  "owner": "ruvnet",
+  "repo": "ruflo",
+  "week": 3708,
+  "total": 78611,
+  "language": "TypeScript",
+  "license": "MIT",
+  "created": "2025-06-02",
+  "what": "面向 Claude Code / Codex 的智能体外壳",
+  "short": "智能体外壳",
+  "takeaway": "Agent = Model + Harness：外壳这一层正成为新热点"
+ },
+ "science": {
+  "rank": 5,
+  "owner": "K-Dense-AI",
+  "repo": "scientific-agent-skills",
+  "week": 3967,
+  "total": 54042,
+  "language": "Python",
+  "license": "MIT",
+  "created": "2025-10-19",
+  "what": "177 个科研技能的开放技能库",
+  "short": "科研技能库",
+  "takeaway": "把专业流程写成技能，通用智能体也能当科研助手"
+ },
+ "plugins": {
+  "rank": 2,
+  "owner": "anthropics",
+  "repo": "claude-plugins-official",
+  "week": 5649,
+  "total": 44004,
+  "language": "Python",
+  "license": "Apache-2.0",
+  "created": "2025-11-20",
+  "what": "Anthropic 官方的 Claude Code 插件目录",
+  "short": "Claude Code 插件目录",
+  "takeaway": "插件目录 ≈ 智能体的应用商店 · 安装前先确认插件可信"
+ },
+ "rea": {
+  "rank": 1,
+  "owner": "morluto",
+  "repo": "rea",
+  "week": 106341,
+  "total": 369545,
+  "language": "TypeScript",
+  "license": "MIT",
+  "created": "2026-04-14",
+  "what": "让智能体逆向分析软件的 MCP 工具",
+  "short": "逆向一切",
+  "takeaway": "智能体开始读懂软件本身 · 它不是沙箱，分析可疑程序要小心"
+ },
+ "_snapshot": "github.com/trending?since=weekly fetched 2026-10-23 18:09 UTC+8 (raw/trending_2026-10-23.html)"
+}

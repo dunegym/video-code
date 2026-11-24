@@ -1,0 +1,25 @@
+{
+  "brand": "Hugging Face",
+  "title_suffix": "本周热榜",
+  "top": "Top 5",
+  "date": "2026 · 第 45 周 · 11月7日",
+  "sub1": "多模态智能体 · 单图生成 3D · 3D 代码 · 音视频生成 · 稠密模型",
+  "sub2": "这一周，热榜上一半是三维",
+  "metric": "likes",
+  "metric_label": "点赞",
+  "metric_prefix": "",
+  "descs": {
+    "kimi": "开源智能指数第一",
+    "idol": "一张照片生成 3D 高斯",
+    "coder3d": "4B 小模型写 Three.js",
+    "ltx": "音视频联合生成",
+    "ripple": "65B 稠密，不用 MoE"
+  },
+  "avatars": {
+    "kimi": "assets/proc/av_kimi.png",
+    "idol": "assets/proc/av_idol.png",
+    "coder3d": "assets/proc/av_coder3d.png",
+    "ltx": "assets/proc/av_ltx.png",
+    "ripple": "assets/proc/av_ripple.png"
+  }
+}

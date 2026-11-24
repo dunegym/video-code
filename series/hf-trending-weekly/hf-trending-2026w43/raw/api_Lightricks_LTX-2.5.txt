@@ -1,0 +1,35 @@
+Client.predict() Usage Info
+---------------------------
+Named API endpoints: 3
+
+ - predict(path, api_name="/set_dims_from_image") -> (height_final, width_final)
+    Parameters:
+     - [Image] path: filepath (required)  (A local filepath or publicly available URL.) 
+    Returns:
+     - [Slider] height_final: float (numeric value between 512 and 1536) 
+     - [Slider] width_final: float (numeric value between 512 and 1536) 
+
+ - predict(api_name="/lambda") -> (height_final, width_final)
+    Parameters:
+     - None
+    Returns:
+     - [Slider] height_final: float (numeric value between 512 and 1536) 
+     - [Slider] width_final: float (numeric value between 512 and 1536) 
+
+ - predict(prompt, image_path, height, width, duration_s, seed, decoder, auto_len, randomize_seed, do_enhance, api_name="/run") -> (result_with_audio, prompt_sent_to_the_model_the_enhanced_one_when_enhancement_is_on, seed_used, length_generated)
+    Parameters:
+     - [Textbox] prompt: str (required)  
+     - [Image] image_path: filepath (required)  (A local filepath or publicly available URL.) 
+     - [Slider] height: float (not required, defaults to:   1472)  
+     - [Slider] width: float (not required, defaults to:   832)  
+     - [Slider] duration_s: float (not required, defaults to:   2.0)  
+     - [Slider] seed: float (not required, defaults to:   42)  
+     - [Radio] decoder: Literal['diffusion', 'conv'] (not required, defaults to:   conv)  
+     - [Checkbox] auto_len: bool (not required, defaults to:   False)  
+     - [Checkbox] randomize_seed: bool (not required, defaults to:   True)  
+     - [Checkbox] do_enhance: bool (not required, defaults to:   True)  
+    Returns:
+     - [Video] result_with_audio: filepath 
+     - [Textbox] prompt_sent_to_the_model_the_enhanced_one_when_enhancement_is_on: str 
+     - [Number] seed_used: float 
+     - [Textbox] length_generated: str 

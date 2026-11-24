@@ -1,0 +1,18 @@
+GitHub Agent/AI 周热榜 Top 5（2026 年第 47 周 · 11 月 20 日）｜给智能体补技能：查近况、审代码、跟网页新特性、做设计，再把人拉回评审。
+
+#5 mvanhorn/last30days-skill：按真实互动在社交平台、代码仓库和预测市场里并行检索近三十天讨论，再合成一份有出处的简报。
+https://github.com/mvanhorn/last30days-skill
+
+#4 alibaba/open-code-review：用确定性流水线卡住选文件、打包和定位，再让审查代理做动态判断，官方评测里词元大约只有通用代理的九分之一。
+https://github.com/alibaba/open-code-review
+
+#3 GoogleChrome/modern-web-guidance-src：这是现代网页指南的源码与评测仓库，技能包在本地检索并把平台新写法塞进编码智能体的上下文。
+https://github.com/GoogleChrome/modern-web-guidance-src
+
+#2 google-labs-code/stitch-skills：一套对接 Google Stitch 的设计技能，分成出稿、把稿子编成组件，以及补提示词和设计说明三组。
+https://github.com/google-labs-code/stitch-skills
+
+#1 backnotprop/plannotator：本地评审工作台，智能体提出方案或交上改动后在浏览器里打开，你批注、做决定，再把意见送回对应的那次运行。
+https://github.com/backnotprop/plannotator
+
+数据来源：GitHub Trending 周榜（https://github.com/trending?since=weekly），抓取日期 2026-11-20，名次为按页面顺序筛选 Agent/AI 项目后的类内前五。

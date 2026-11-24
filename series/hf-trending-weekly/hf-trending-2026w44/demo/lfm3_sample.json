@@ -1,0 +1,12 @@
+{
+ "space": "akhaliq/lfm3-studio",
+ "runs": [
+  {
+   "endpoint": "/extract",
+   "text": "Um, so okay, the launch review is moved to Thursday, October twenty ninth at three thirty. Wait, Thursday? I thought it was Friday. Do we still need the Kubernetes migration plan? Yeah, Priya will send the plan and the budget is about twelve thousand five hundred dollars.",
+   "fields": "meeting, date, time, owner, deliverable, budget_usd",
+   "output": "ERROR AppError('The requested GPU duration (450s) is larger than the maximum allowedSubscribe to Hugging Face PRO to allow GPU tasks up to 40 min - https://huggingface.co/subscribe/pro?from=ZeroGPU')",
+   "secs": 1.0
+  }
+ ]
+}

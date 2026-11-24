@@ -1,0 +1,18 @@
+{
+ "brand": "GitHub",
+ "title_suffix": "本周热榜",
+ "top": "Top 5",
+ "date": "2026 · 第 46 周 · 11月13日",
+ "sub1": "浏览器 · 电脑 · 数据语义 · 安全审计",
+ "sub2": "智能体补齐双手和依据",
+ "metric": "week",
+ "metric_label": "本周",
+ "desc_key": "short",
+ "descs_wide": {
+  "skills": "官方 Agent Skills 仓库",
+  "OpenMausBot": "开源智能体团队聊天",
+  "agent-browser": "智能体专用浏览器 CLI",
+  "auto-ontology": "数据智能体语义层",
+  "security-audit-skill": "可复核的 AI 安全审计"
+ }
+}

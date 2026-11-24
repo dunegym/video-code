@@ -1,0 +1,25 @@
+{
+  "brand": "Hugging Face",
+  "title_suffix": "本周热榜",
+  "top": "Top 5",
+  "date": "2026 · 第 44 周 · 10月31日",
+  "sub1": "智能体模型 · 量化部署 · 端侧模型 · 语音识别",
+  "sub2": "这一周，大模型都在往小设备上挤",
+  "metric": "likes",
+  "metric_label": "点赞",
+  "metric_prefix": "",
+  "descs": {
+    "nanbeige": "33B 稠密教师智能体",
+    "deepseek": "2 bit 量化几乎不掉分",
+    "lfm3": "4 bit 约 1GB 端侧智能体",
+    "nemotron": "一句指令决定怎么转写",
+    "mistral": "1T MoE 多模态"
+  },
+  "avatars": {
+    "nanbeige": "assets/proc/av_nanbeige.png",
+    "deepseek": "assets/proc/av_deepseek.png",
+    "lfm3": "assets/proc/av_lfm3.png",
+    "nemotron": "assets/proc/av_nemotron.png",
+    "mistral": "assets/proc/av_mistral.png"
+  }
+}

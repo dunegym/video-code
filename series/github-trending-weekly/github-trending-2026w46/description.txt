@@ -1,0 +1,18 @@
+GitHub 本周热榜 Top 5（2026 年第 46 周 · 11 月 13 日）｜智能体补齐双手和依据：浏览器、电脑、数据语义、安全审计，还有官方技能库。
+
+#5 cloudflare/security-audit-skill：让编码智能体按多阶段流程做安全审计，用覆盖清单和发现记录两本账让每条结论都可复核。
+https://github.com/cloudflare/security-audit-skill
+
+#4 NVIDIA/auto-ontology：给数据智能体搭一层业务语义，先自动生成指标与关联草稿、经人认证，再据此写 SQL 回答问题。
+https://github.com/NVIDIA/auto-ontology
+
+#3 vercel-labs/agent-browser：给智能体用的浏览器命令行，把页面读成带编号的无障碍树，按编号点击填写再快照确认。
+https://github.com/vercel-labs/agent-browser
+
+#2 milind-soni/OpenMausBot：聊天软件式的开源智能体团队应用，每个机器人有自己的模型、电脑和应用，敏感操作需在对话里批准。
+https://github.com/milind-soni/OpenMausBot
+
+#1 anthropics/skills：Anthropic 官方 Agent Skills 仓库，本周 Word、PDF、演示文稿和表格文档技能改为 Apache 2.0 许可。
+https://github.com/anthropics/skills
+
+数据来源：GitHub Trending 周榜（https://github.com/trending?since=weekly），抓取日期 2026-11-13，名次按页面顺序。

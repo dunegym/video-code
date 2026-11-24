@@ -1,0 +1,18 @@
+Hugging Face 本周热榜 Top 5（2026 年第 46 周 · 11 月 14 日）｜官方模型和社区微调重新占了前排，但榜首是被一个点赞结构异常的去审查衍生仓库顶上去的。
+
+#1 Jackrong/DeepSeek-V4-Pro-Qwen3.5-9B：把 DeepSeek V4 Pro 蒸馏到 Qwen3.5-9B 的数学模型；冲上榜首的是它的 Heretic 去审查衍生仓库，七成点赞来自 11 月才注册的账号，原仓库只有几十个赞。
+https://huggingface.co/Jackrong/DeepSeek-V4-Pro-Qwen3.5-9B
+
+#2 MiniMaxAI/MiniMax-H3-Image：文生图和改图共用一个检查点，直接出约 16MP 的图；Artificial Analysis 开源权重的改图、文生图榜目前都排第一，许可不含欧美韩且年收入超 100 万美元需另行授权。
+https://huggingface.co/MiniMaxAI/MiniMax-H3-Image
+
+#3 Lightricks/LTX-2.5：音视频联合生成的 22B 模型再登热榜，点赞里仍有近六成来自 8 月之后注册的账号，第三方视频竞技场仍在中下游。
+https://huggingface.co/Lightricks/LTX-2.5
+
+#4 Qwen/Qwen3.8-27B：27B 稠密多模态模型，带着量化和去审查衍生仓库回到前排；官方自报的智能体任务强于上一代，第三方智能指数在同尺寸开源模型里偏强，但又慢又贵。
+https://huggingface.co/Qwen/Qwen3.8-27B
+
+#5 NousResearch/Arete-27B：在 Qwen3.8-27B 上做监督微调，想改变敏感话题上的拒答和表述；官方自报事实分提高、宣传口径下降且能力未明显退步，评测为作者自建，社区争论激烈。
+https://huggingface.co/NousResearch/Arete-27B
+
+数据来源：Hugging Face Trending（2026-11-14 18:11 北京时间抓取），同一模型的 GGUF / 量化 / 去审查 / ComfyUI 衍生仓库已合并计入原模型。

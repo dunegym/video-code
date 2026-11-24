@@ -1,0 +1,18 @@
+Hugging Face 本周热榜 Top 5（2026 年第 47 周 · 11 月 21 日）｜新的本地多模态和全双工语音占了前排，但第二名的点赞和公开列表对不上，第四名则是一个没有模型卡、下载为零的社区打包仓库。
+
+#1 thinkingmachines/Inkling-2-Mini：面向本地部署的循环 MoE 多模态模型，11 月 20 日刚发布就登顶；第三方智能指数 20，明显高于同尺寸开源中位数，但输出偏长。
+https://huggingface.co/thinkingmachines/Inkling-2-Mini
+
+#2 higurashi-ai/Haru-4B：全双工语音对话基座，听和说同时进行；热榜显示五千多个点赞，公开点赞列表却只有八百来条，列表内账号的注册时间并不异常。
+https://huggingface.co/higurashi-ai/Haru-4B
+
+#3 harness-hub/Qwen3.8-27B-pi-adapted：给 pi 编程代理做的强化学习 LoRA，不是官方量化或封装；作者自报关掉思考时已接近底座最高思考强度，但评测都在自家框架下，尚无第三方复现。
+https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted
+
+#4 Sentinel7/h3：没有模型卡的社区 LoRA 合集，多数面向 MiniMax H3 视频模型，其中不少是成人向；近三十天下载为零，却有五百多个点赞，不是官方发布。
+https://huggingface.co/Sentinel7/h3
+
+#5 Lightricks/LTX-2.5：音视频联合生成的 22B 模型再登前五，点赞和下载都还在涨；连续三周复核，八月之后注册的点赞账号占比仍接近六成，第三方视频竞技场仍在中下游。
+https://huggingface.co/Lightricks/LTX-2.5
+
+数据来源：Hugging Face Trending（2026-11-21 17:54 北京时间抓取），同一模型的 GGUF / 量化 / 去审查 / ComfyUI 衍生仓库已合并计入原模型。
