@@ -81,6 +81,10 @@ audio_*/
 voice_samples/
 backup_*/
 
+# Scraped raw HTML snapshots (avoid repo bloat and third-party key false positives)
+**/raw/*.html
+**/raw/**/*.html
+
 # ==============================================================================
 # Logs & Temporary Files
 # ==============================================================================
