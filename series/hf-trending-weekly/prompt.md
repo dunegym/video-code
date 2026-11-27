@@ -14,11 +14,11 @@
 - 周次 = 启动日所在 ISO 周历周（周一为一周之始）。目录：`video-code/hf-trending-<year>w<week>/`（扁平结构，不分 ai/other）。
 - 参考实例：`video-code/hf-trending-2026w47/`。
 
-## 2. 榜单获取与去重
+## 2. 榜单获取与合并去重
 
-1. 通过 HF API（`https://huggingface.co/api/models?sort=trendingScore&limit=10&full=true`）或已登录 `hf` CLI 获取 trending models；保留原始排序与仓库身份：
+1. 通过 HF API（`https://huggingface.co/api/models?sort=trendingScore&limit=20&full=true`）或已登录 `hf` CLI 获取 trending models；保留原始排序与仓库身份：
    - 原始 JSON → `raw/trending_models.json`；抓取时刻 → `raw/snapshot_time.txt`（北京时间，附 PST 对照）。
-2. **去重**：若有模型在最近两周的视频中已经详细介绍过，本周一笔带过即可，详细介绍的名额向后顺延。
+2. **去重**：若有前五名的模型在最近两周的视频中已经详细介绍过，本周一笔带过即可，详细介绍的名额向后顺延。若前五名中有同一模型的不同变体，如量化、微调等，只介绍最靠前的一个，因此空出的名额向后顺延。
 3. 记录前五之后的下一名，以及上周前五本周的去向（名次、点赞、下载变化），供脚本与 README 使用。
 
 ## 3. 研究证据（分层，而非只有参数表）
