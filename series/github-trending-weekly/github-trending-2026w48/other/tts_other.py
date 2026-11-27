@@ -50,19 +50,22 @@ def decode_mono(flac_path: pathlib.Path):
         chunks = []
         for frame in container.decode(audio=0):
             arr = frame.to_ndarray()
+            if np.issubdtype(arr.dtype, np.integer):
+                scale = float(1 << (arr.dtype.itemsize * 8 - 1))
+                arr = arr.astype(np.float32) / scale
+            else:
+                arr = arr.astype(np.float32)
             if arr.ndim == 2:
                 arr = arr.mean(axis=0)
-            arr = arr.astype(np.float32)
-            if np.max(np.abs(arr)) > 1.5:
-                arr = arr / 32768.0
             chunks.append(arr)
     audio = np.concatenate(chunks) if chunks else np.zeros(0, dtype=np.float32)
     return audio, sr
 
 
-def trim_silence(audio: np.ndarray, sr: int, thresh: float = 0.008, pad_s: float = 0.04):
+def trim_silence(audio: np.ndarray, sr: int, thresh: float = 0.008, pad_s: float = 0.04, fade_in_s: float = 0.02, fade_out_s: float = 0.03):
     if len(audio) == 0:
         return audio
+    audio = audio - float(np.mean(audio))
     win = max(1, int(sr * 0.01))
     n = len(audio) // win
     if n == 0:
@@ -73,7 +76,14 @@ def trim_silence(audio: np.ndarray, sr: int, thresh: float = 0.008, pad_s: float
         return audio
     s = max(0, int(nz[0] * win - pad_s * sr))
     e = min(len(audio), int((nz[-1] + 1) * win + pad_s * sr))
-    return audio[s:e]
+    out = audio[s:e].copy()
+    fi = min(int(fade_in_s * sr), len(out) // 4)
+    fo = min(int(fade_out_s * sr), len(out) // 4)
+    if fi > 1:
+        out[:fi] *= 0.5 * (1.0 - np.cos(np.linspace(0.0, np.pi, fi, dtype=np.float32)))
+    if fo > 1:
+        out[-fo:] *= 0.5 * (1.0 + np.cos(np.linspace(0.0, np.pi, fo, dtype=np.float32)))
+    return out
 
 
 def find_pause_split(audio: np.ndarray, sr: int, target_frac: float, window_frac: float = 0.16) -> float:
