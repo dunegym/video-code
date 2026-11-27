@@ -1,0 +1,69 @@
+{
+ "_meta": {
+  "source": "https://github.com/trending?since=weekly",
+  "captured": "2026-11-27 17:01 (Asia/Shanghai)",
+  "order": "category page order",
+  "timezone": "Asia/Shanghai",
+  "week": 48
+ },
+ "pn": {
+  "rank": 1,
+  "owner": "backnotprop",
+  "repo": "plannotator",
+  "week": 1631,
+  "total": 15318,
+  "language": "TypeScript",
+  "license": "Apache-2.0",
+  "created": "2025-12-28",
+  "what": "给人盯智能体的本地评审工作台",
+  "short": "智能体评审工作台"
+ },
+ "st": {
+  "rank": 2,
+  "owner": "google-labs-code",
+  "repo": "stitch-skills",
+  "week": 2619,
+  "total": 13411,
+  "language": "TypeScript",
+  "license": "Apache-2.0",
+  "created": "2026-01-16",
+  "what": "对接 Google Stitch 的设计技能库",
+  "short": "Stitch 设计技能库"
+ },
+ "mw": {
+  "rank": 3,
+  "owner": "GoogleChrome",
+  "repo": "modern-web-guidance-src",
+  "week": 2209,
+  "total": 11335,
+  "language": "TypeScript",
+  "license": "Apache-2.0",
+  "created": "2026-01-27",
+  "what": "给编码智能体的现代网页指南",
+  "short": "现代网页指南技能"
+ },
+ "nod": {
+  "rank": 4,
+  "owner": "n8n-io",
+  "repo": "nod",
+  "week": 1165,
+  "total": 4111,
+  "language": "TypeScript",
+  "license": "Apache-2.0",
+  "created": "2026-09-25",
+  "what": "自带沙盒电脑的本地个人智能体",
+  "short": "自带电脑个人智能体"
+ },
+ "ocr": {
+  "rank": 5,
+  "owner": "alibaba",
+  "repo": "open-code-review",
+  "week": 2284,
+  "total": 56753,
+  "language": "Go",
+  "license": "Apache-2.0",
+  "created": "2026-05-18",
+  "what": "确定性流水线加代理的代码审查",
+  "short": "混合架构代码审查"
+ }
+}

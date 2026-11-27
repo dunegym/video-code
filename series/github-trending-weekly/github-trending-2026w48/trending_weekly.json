@@ -1,0 +1,158 @@
+{
+  "snapshot_bj": "2026-11-27T17:01:56.344310+08:00",
+  "snapshot_pst": "2026-11-27T01:01:56.344310-08:00",
+  "url": "https://github.com/trending?since=weekly",
+  "count": 15,
+  "items": [
+    {
+      "page_rank": 1,
+      "repo": "backnotprop/plannotator",
+      "owner": "backnotprop",
+      "name": "plannotator",
+      "language": "TypeScript",
+      "total_stars": 15318,
+      "week_stars": 1631,
+      "description": "The workspace to stay in the loop and on top of agents - shape, decide, plan, annotate, review code, share with team, and send all feedback to agents with one click."
+    },
+    {
+      "page_rank": 2,
+      "repo": "google-labs-code/stitch-skills",
+      "owner": "google-labs-code",
+      "name": "stitch-skills",
+      "language": "TypeScript",
+      "total_stars": 13411,
+      "week_stars": 2619,
+      "description": "A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor."
+    },
+    {
+      "page_rank": 3,
+      "repo": "GoogleChrome/modern-web-guidance-src",
+      "owner": "GoogleChrome",
+      "name": "modern-web-guidance-src",
+      "language": "TypeScript",
+      "total_stars": 11335,
+      "week_stars": 2209,
+      "description": "Keep your coding agent up to date with the latest web best practices"
+    },
+    {
+      "page_rank": 4,
+      "repo": "n8n-io/nod",
+      "owner": "n8n-io",
+      "name": "nod",
+      "language": "TypeScript",
+      "total_stars": 4111,
+      "week_stars": 1165,
+      "description": "Open source personal agent with its own computer. It chases invoices, preps your calls and cancels trials on real websites, and asks before it acts. Runs on your machine with the model you choose. By n8n."
+    },
+    {
+      "page_rank": 5,
+      "repo": "alibaba/open-code-review",
+      "owner": "alibaba",
+      "name": "open-code-review",
+      "language": "Go",
+      "total_stars": 56753,
+      "week_stars": 2284,
+      "description": "Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible."
+    },
+    {
+      "page_rank": 6,
+      "repo": "mvanhorn/last30days-skill",
+      "owner": "mvanhorn",
+      "name": "last30days-skill",
+      "language": "Python",
+      "total_stars": 76015,
+      "week_stars": 5090,
+      "description": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary"
+    },
+    {
+      "page_rank": 7,
+      "repo": "ChromeDevTools/chrome-devtools-mcp",
+      "owner": "ChromeDevTools",
+      "name": "chrome-devtools-mcp",
+      "language": "TypeScript",
+      "total_stars": 59551,
+      "week_stars": 1175,
+      "description": "Chrome DevTools for coding agents"
+    },
+    {
+      "page_rank": 8,
+      "repo": "tradermonty/claude-trading-skills",
+      "owner": "tradermonty",
+      "name": "claude-trading-skills",
+      "language": "Python",
+      "total_stars": 8654,
+      "week_stars": 1381,
+      "description": "Claude Code skills for equity investors and traders — market analysis, technical charting, economic calendars, screeners, and trading strategy development."
+    },
+    {
+      "page_rank": 9,
+      "repo": "ag-ui-protocol/ag-ui",
+      "owner": "ag-ui-protocol",
+      "name": "ag-ui",
+      "language": "TypeScript",
+      "total_stars": 21885,
+      "week_stars": 1269,
+      "description": "AG-UI: the Agent-User Interaction Protocol. Bring Agents into Frontend Applications."
+    },
+    {
+      "page_rank": 10,
+      "repo": "meta/astryx",
+      "owner": "meta",
+      "name": "astryx",
+      "language": "TypeScript",
+      "total_stars": 33434,
+      "week_stars": 2519,
+      "description": "An open source design system that's fully customizable and agent ready"
+    },
+    {
+      "page_rank": 11,
+      "repo": "pookjw/HermesEnabler",
+      "owner": "pookjw",
+      "name": "HermesEnabler",
+      "language": "Objective-C",
+      "total_stars": 2556,
+      "week_stars": 325,
+      "description": "Enable Hermès Watch Faces on any Apple Watch devices"
+    },
+    {
+      "page_rank": 12,
+      "repo": "we-promise/sure",
+      "owner": "we-promise",
+      "name": "sure",
+      "language": "Ruby",
+      "total_stars": 18140,
+      "week_stars": 1430,
+      "description": "The personal finance app for everyone (by everyone)"
+    },
+    {
+      "page_rank": 13,
+      "repo": "obsidianmd/obsidian-skills",
+      "owner": "obsidianmd",
+      "name": "obsidian-skills",
+      "language": "Shell",
+      "total_stars": 54141,
+      "week_stars": 704,
+      "description": "Teach your agent to use Obsidian and open formats including Markdown, Bases, JSON Canvas."
+    },
+    {
+      "page_rank": 14,
+      "repo": "dream-num/univer",
+      "owner": "dream-num",
+      "name": "univer",
+      "language": "TypeScript",
+      "total_stars": 32010,
+      "week_stars": 1825,
+      "description": "Build your own AI office with Univer Office SDK. Bring editing, calculation, collaboration, and file processing into your product for people and AI agents. Built on an extensible open-source core."
+    },
+    {
+      "page_rank": 15,
+      "repo": "kajisho5/ffmpeg-skill",
+      "owner": "kajisho5",
+      "name": "ffmpeg-skill",
+      "language": "Python",
+      "total_stars": 11683,
+      "week_stars": 3229,
+      "description": "Local video editor for coding agents: 42 FFmpeg tools with a machine-readable contract and an MCP server, for Claude Code, Cursor and Codex. Cut, captions, reframe, loudness, platform exports. No cloud, no API keys."
+    }
+  ]
+}

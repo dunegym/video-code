@@ -1,0 +1,18 @@
+{
+ "brand": "GitHub",
+ "title_suffix": "Agent/AI 周热榜",
+ "top": "Top 5",
+ "date": "2026 · 第 48 周 · 11月27日",
+ "sub1": "代码审查 · 个人智能体 · 网页指南 · 设计技能",
+ "sub2": "从技能补齐到自带沙盒电脑，再把人拉回评审",
+ "metric": "week",
+ "metric_label": "本周",
+ "desc_key": "short",
+ "descs_wide": {
+  "plannotator": "智能体评审工作台",
+  "stitch-skills": "Stitch 设计技能库",
+  "modern-web-guidance-src": "现代网页指南技能",
+  "nod": "自带电脑个人智能体",
+  "open-code-review": "混合架构代码审查"
+ }
+}

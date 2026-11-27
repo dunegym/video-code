@@ -1,0 +1,92 @@
+"""Concat scenes, burn 60px ASS subtitles, write SRT, loudnorm -16 LUFS, x264 crf20 + AAC + faststart."""
+import json, os, pathlib, subprocess
+from script_other import ORDER
+
+ROOT = pathlib.Path(__file__).resolve().parent
+os.chdir(ROOT)
+tm = json.loads(pathlib.Path("timing_other.json").read_text(encoding="utf-8"))
+run = lambda *a: subprocess.run(list(a), check=True)
+
+outdir = pathlib.Path("build/final")
+outdir.mkdir(parents=True, exist_ok=True)
+parts = []
+for s in ORDER:
+    out = outdir / f"{s}.mp4"
+    d = tm[s]["total"]
+    ovf = pathlib.Path("build/scenes") / f"ov_{s}.json"
+    ov = json.loads(ovf.read_text(encoding="utf-8")) if ovf.exists() else []
+    inputs = ["-i", f"media_other/videos/scenes_other/1080p30/{s}.mp4"]
+    fc = "[0:v]tpad=stop_mode=clone:stop_duration=2[b0];"
+    last = "b0"
+    for k, o in enumerate(ov, 1):
+        inputs += ["-stream_loop", "-1", "-i", o["clip"]]
+        fc += (
+            f'[{k}:v]trim=start={o["ss"]},setpts=(PTS-STARTPTS)/{o["speed"]:.4f},fps=30,'
+            f'scale={o["w"]}:{o["h"]}:flags=lanczos,format=rgba,'
+            f'fade=t=in:st=0:d=0.3:alpha=1,fade=t=out:st={max(0, o["dur"] - 0.35):.3f}:d=0.3:alpha=1,'
+            f'setpts=PTS+{o["t0"]}/TB[g{k}];'
+            f'[{last}][g{k}]overlay={o["x"]}:{o["y"]}:eof_action=pass:enable=\'between(t,{o["t0"]},{o["t0"]+o["dur"]:.3f})\'[b{k}];'
+        )
+        last = f"b{k}"
+    na = len(ov) + 1
+    inputs += ["-i", f"audio_other/{s}.wav"]
+    fc += f"[{last}]trim=0:{d},setpts=PTS-STARTPTS,format=yuv420p[v];[{na}:a]atrim=0:{d},asetpts=PTS-STARTPTS[a]"
+    run(
+        "ffmpeg", "-y", "-v", "error", *inputs,
+        "-filter_complex", fc, "-map", "[v]", "-map", "[a]", "-t", str(d),
+        "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-r", "30",
+        "-c:a", "pcm_s16le", "-ar", "48000", str(out),
+    )
+    parts.append(out.name)
+    print("scene", s, d)
+
+listp = outdir / "list.txt"
+listp.write_text("".join(f"file '{p}'\n" for p in parts), encoding="utf-8")
+run("ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", str(listp), "-c", "copy", str(outdir / "joined.mkv"))
+
+def ts_ass(t):
+    return f"{int(t // 3600)}:{int(t % 3600 // 60):02d}:{t % 60:05.2f}"
+
+def ts_srt(t):
+    ms = int(round(t * 1000))
+    return f"{ms // 3600000:02d}:{ms // 60000 % 60:02d}:{ms // 1000 % 60:02d},{ms % 1000:03d}"
+
+ev = []
+off = 0.0
+for s in ORDER:
+    for c in tm[s]["subs"]:
+        ev.append((off + c["start"], off + c["end"], c["text"].rstrip("、，。；：")))
+    off += tm[s]["total"]
+
+sub_font = "Microsoft YaHei" if os.name == "nt" else "Noto Sans CJK SC"
+head = f"""[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,{sub_font},60,&H00F3EDE6,&H00FFFFFF,&H00110D0D,&H99000000,0,0,0,0,100,100,1,0,1,3.5,0,2,60,60,34,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+"""
+base = "github_trending_other_w48"
+pathlib.Path(base + ".ass").write_text(
+    head + "".join(f"Dialogue: 0,{ts_ass(a)},{ts_ass(b)},Sub,,0,0,0,,{t}\n" for a, b, t in ev),
+    encoding="utf-8",
+)
+pathlib.Path(base + ".srt").write_text(
+    "\n".join(f"{i}\n{ts_srt(a)} --> {ts_srt(b)}\n{t}\n" for i, (a, b, t) in enumerate(ev, 1)),
+    encoding="utf-8",
+)
+run(
+    "ffmpeg", "-y", "-v", "error", "-i", str(outdir / "joined.mkv"),
+    "-vf", f"ass={base}.ass",
+    "-af", "loudnorm=I=-16:TP=-1.5:LRA=11",
+    "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p", "-profile:v", "high", "-r", "30",
+    "-c:a", "aac", "-b:a", "160k", "-ar", "48000", "-movflags", "+faststart",
+    base + ".mp4",
+)
+print("DONE", base + ".mp4", round(off, 3))

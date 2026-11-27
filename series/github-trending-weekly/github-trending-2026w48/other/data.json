@@ -1,0 +1,58 @@
+{
+ "_meta": {
+  "source": "https://github.com/trending?since=weekly",
+  "captured": "2026-11-27 17:01 (Asia/Shanghai)",
+  "order": "category page order",
+  "timezone": "Asia/Shanghai",
+  "week": 48,
+  "shortfall": "only 4 eligible non-AI projects on the 15-item weekly list"
+ },
+ "ax": {
+  "rank": 1,
+  "owner": "meta",
+  "repo": "astryx",
+  "week": 2519,
+  "total": 33434,
+  "language": "TypeScript",
+  "license": "MIT",
+  "created": "2026-01-09",
+  "what": "Meta 开源、人和智能体共用的设计系统",
+  "short": "Meta 开源设计系统"
+ },
+ "he": {
+  "rank": 2,
+  "owner": "pookjw",
+  "repo": "HermesEnabler",
+  "week": 325,
+  "total": 2556,
+  "language": "Objective-C",
+  "license": "MIT",
+  "created": "2024-12-14",
+  "what": "在普通苹果手表上启用爱马仕表盘",
+  "short": "启用爱马仕表盘"
+ },
+ "su": {
+  "rank": 3,
+  "owner": "we-promise",
+  "repo": "sure",
+  "week": 1430,
+  "total": 18140,
+  "language": "Ruby",
+  "license": "AGPL-3.0",
+  "created": "2025-07-23",
+  "what": "社区续命的可自托管个人理财应用",
+  "short": "开源个人理财应用"
+ },
+ "un": {
+  "rank": 4,
+  "owner": "dream-num",
+  "repo": "univer",
+  "week": 1825,
+  "total": 32010,
+  "language": "TypeScript",
+  "license": "Apache-2.0",
+  "created": "2022-09-29",
+  "what": "可嵌入产品的 Office 开发工具包",
+  "short": "嵌入式 Office SDK"
+ }
+}

@@ -1,0 +1,18 @@
+GitHub Agent/AI 周热榜 Top 5（2026 年第 48 周 · 11 月 27 日）｜n8n 团队自带沙盒电脑的个人智能体 Nod 新晋前五，加上代码审查、网页指南、设计技能和本地评审工作台。
+
+#5 alibaba/open-code-review：用确定性流水线卡住选文件、打包和定位，再让隔离子代理并行审查，本周新版本支持按固定快照审 PR。
+https://github.com/alibaba/open-code-review
+
+#4 n8n-io/nod：n8n 团队开源的个人智能体，在本地配好 Linux 沙盒与浏览器，把审批、凭证库和消费上限留在服务端，代办真实网页里的琐事。
+https://github.com/n8n-io/nod
+
+#3 GoogleChrome/modern-web-guidance-src：现代网页指南的源码与评测仓库，本地离线检索并按评测剪枝，只留真正能拉开通过率差距的规则。
+https://github.com/GoogleChrome/modern-web-guidance-src
+
+#2 google-labs-code/stitch-skills：对接 Google Stitch 的设计技能库，分设计、构建和工具三组，让编码智能体在设计稿与组件代码之间流转。
+https://github.com/google-labs-code/stitch-skills
+
+#1 backnotprop/plannotator：本地浏览器评审工作台，收件箱汇总多智能体提问与改动，本周新版本进一步打通跨设备协作与一键推进合并。
+https://github.com/backnotprop/plannotator
+
+数据来源：GitHub Trending 周榜（https://github.com/trending?since=weekly），抓取日期 2026-11-27，名次为按页面顺序筛选 Agent/AI 类项目后的类内前五。

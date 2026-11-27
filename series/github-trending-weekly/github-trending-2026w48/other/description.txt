@@ -1,0 +1,15 @@
+GitHub 非 AI 类项目周热榜 Top 4（2026 年第 48 周 · 11 月 27 日）｜本周可用周榜共 15 项，筛掉 Agent/AI 类项目后仅剩 4 项：设计系统、表盘工具、个人理财和嵌入式办公套件。
+
+#4 dream-num/univer：可嵌入产品的开源 Office SDK，功能与界面插件解耦、统一命令体系支持跨功能撤销重做，应用与智能体共用同一套门面接口。
+https://github.com/dream-num/univer
+
+#3 we-promise/sure：社区接手维护的 Maybe Finance 分支，Docker 自托管、多端共用同一套账本，提供开支对比历史与贷款本息节奏视图。
+https://github.com/we-promise/sure
+
+#2 pookjw/HermesEnabler：在普通 Apple Watch 上启用爱马仕表盘的侧载工具，限定 watchOS 27 指定版本范围，删除前须先恢复系统备份。
+https://github.com/pookjw/HermesEnabler
+
+#1 meta/astryx：Meta 内部打磨约八年后开源的设计系统，基础、组件与页面模式分层设计，引导而非强制，让人和智能体共用同一套接口。
+https://github.com/meta/astryx
+
+数据来源：GitHub Trending 周榜（https://github.com/trending?since=weekly），抓取日期 2026-11-27，名次为按页面顺序筛掉 Agent/AI 类项目后的类内顺序。本周可用列表共 15 条，非 AI 类项目仅 4 条，按实际数量呈现，未编造补位。
